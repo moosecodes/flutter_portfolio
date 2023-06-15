@@ -1,9 +1,7 @@
 import 'weather.dart';
 import 'favorites.dart';
 import 'generator.dart';
-
 import 'package:flutter/material.dart';
-import '../classes/class_album.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -12,14 +10,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var selectedIndex = 0;
-
-  late Future<Album> futureAlbum;
-
-  @override
-  void initState() {
-    super.initState();
-    futureAlbum = fetchAlbum();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +26,13 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 2:
         page = WeatherPage();
+        break;
+      case 3:
+        page = WeatherPage();
+        break;
+      case 4:
+        page = WeatherPage();
+        break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -45,24 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
     var mainArea = ColoredBox(
       color: colorScheme.surfaceVariant,
       child: AnimatedSwitcher(
-        duration: Duration(milliseconds: 200),
+        duration: Duration(milliseconds: 300),
         child: page,
-      ),
-    );
-
-    var networkCall = Center(
-      child: FutureBuilder<Album>(
-        future: futureAlbum,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return Text(snapshot.data!.title);
-          } else if (snapshot.hasError) {
-            return Text('${snapshot.error}');
-          }
-
-          // By default, show a loading spinner.
-          return const CircularProgressIndicator();
-        },
       ),
     );
 
@@ -89,6 +70,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       BottomNavigationBarItem(
                         icon: Icon(Icons.cloud),
                         label: 'Weather',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.cloud),
+                        label: 'Github',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.cloud),
+                        label: 'LinkedIn',
                       ),
                     ],
                     currentIndex: selectedIndex,
@@ -119,6 +108,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       NavigationRailDestination(
                         icon: Icon(Icons.cloud),
                         label: Text('Weather'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.cloud),
+                        label: Text('Github'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.cloud),
+                        label: Text('LinkedIn'),
                       ),
                     ],
                     selectedIndex: selectedIndex,

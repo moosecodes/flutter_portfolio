@@ -3,6 +3,7 @@ import '../main.dart';
 import '../components/big_card.dart';
 import 'history.dart';
 import 'package:provider/provider.dart';
+import '../fade_image_widget.dart';
 
 class GeneratorPage extends StatelessWidget {
   @override
@@ -22,7 +23,7 @@ class GeneratorPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
-            flex: 3,
+            flex: 2,
             child: HistoryListView(),
           ),
           SizedBox(height: 10),
@@ -48,6 +49,12 @@ class GeneratorPage extends StatelessWidget {
             ],
           ),
           Spacer(flex: 2),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              FileImageWidget(),
+            ],
+          ),
         ],
       ),
     );
