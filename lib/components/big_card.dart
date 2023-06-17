@@ -34,7 +34,7 @@ class BigCard extends StatelessWidget {
                 Text(
                   pair.second,
                   style: style.copyWith(fontWeight: FontWeight.bold),
-                )
+                ),
               ],
             ),
           ),

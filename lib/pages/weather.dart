@@ -1,9 +1,10 @@
-// import 'package:provider/provider.dart';
-// import '../main.dart';
+import 'package:provider/provider.dart';
+import '../main.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import '../classes/class_album.dart';
-
+import '../classes/classes.dart';
 
 class WeatherPage extends StatefulWidget {
   @override
@@ -11,53 +12,68 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  late Future<Album> futureAlbum;
+  late Future futureWeather;
+  late Future futureWeatherForecast;
 
   @override
   void initState() {
     super.initState();
-    futureAlbum = fetchAlbum();
+    futureWeather = getCurrentWeather();
+    futureWeatherForecast = getWeatherForecast();
   }
 
   @override
   Widget build(BuildContext context) {
-    // var theme = Theme.of(context);
     // var appState = context.watch<MyAppState>();
+    // var theme = Theme.of(context);
 
-    var networkCall = Center(
-      child: FutureBuilder<Album>(
-        future: futureAlbum,
+    var getCurrentWeather = Center(
+      child: FutureBuilder(
+        future: futureWeather,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Text(snapshot.data!.title);
+            return SizedBox(width: 400, child: Text(snapshot.data!.body));
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-
           // By default, show a loading spinner.
           return const CircularProgressIndicator();
         },
       ),
     );
 
-    // if (appState.weather.isEmpty) {
-    //   return Center(
-    //     child: Text('No weather yet.'),
-    //   );
-    // }
+    var getWeatherForecast = Center(
+      child: FutureBuilder(
+        future: futureWeatherForecast,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return SizedBox(width: 400, child: Text(snapshot.data!.body));
+          } else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
+          // By default, show a loading spinner.
+          return const CircularProgressIndicator();
+        },
+      ),
+    );
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    var weatherLayout = Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(30),
-          child: Text('Weather Report:'),
+        getCurrentWeather,
+        SizedBox(
+          height: 40,
         ),
-        Expanded(
-          // Make better use of wide windows with a grid.
-          child: networkCall
-        ),
+        getWeatherForecast
       ],
+    );
+
+    return Scaffold(
+      body: ListView(children: [
+        Container(height: 200, color: Colors.deepPurple),
+        Expanded(
+            // Make better use of wide windows with a grid.
+            child: weatherLayout),
+      ]),
     );
   }
 }
