@@ -51,34 +51,29 @@ class _WeatherPageState extends State<WeatherPage> {
                     Text(currentTemp.toString()),
                     Text(conditionText),
                     Image(
-                      image: NetworkImage(conditionIcon),
+                      image: NetworkImage("http:$conditionIcon"),
                     ),
                   ],
                 ),
-                Column(
-                  children: [
-                    for (var i in forecast) Text(i['date'].toString()),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    for (var i in forecast)
-                      Text(i['day']['mintemp_f'].toString()),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    for (var i in forecast)
-                      Text(i['day']['maxtemp_f'].toString()),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    for (var i in forecast)
-                      Text(i['day']['condition']['text'].toString()),
-                    for (var i in forecast)
-                      Image(
-                        image: NetworkImage(i['day']['condition']['icon']),
-                      ),
-                  ],
+                for (var i in forecast) Text(i['date'].toString()),
+                SizedBox(
+                  width: 20,
                 ),
+                for (var i in forecast) Text(i['day']['mintemp_f'].toString()),
+                SizedBox(
+                  width: 20,
+                ),
+                for (var i in forecast) Text(i['day']['maxtemp_f'].toString()),
+                SizedBox(
+                  width: 20,
+                ),
+                for (var i in forecast)
+                  Text(i['day']['condition']['text'].toString()),
+                for (var i in forecast)
+                  Image(
+                    image:
+                        NetworkImage("http:${i['day']['condition']['icon']}"),
+                  ),
               ],
             );
           } else if (snapshot.hasError) {

@@ -11,7 +11,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var selectedIndex = 2;
+  int selectedIndex = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +30,10 @@ class _MyHomePageState extends State<MyHomePage> {
         page = WeatherPage();
         break;
       case 3:
-        page = WeatherPage();
+        page = AboutPage();
         break;
       case 4:
-        page = WeatherPage();
+        page = AboutPage();
         break;
       case 5:
         page = AboutPage();
@@ -43,13 +43,73 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // The container for the current page, with its background color
     // and subtle switching animation.
-    var mainArea = ColoredBox(
-      color: colorScheme.surfaceVariant,
+    ColoredBox mainArea = ColoredBox(
+      color: colorScheme.inversePrimary,
       child: AnimatedSwitcher(
         duration: Duration(milliseconds: 300),
         child: page,
       ),
     );
+
+    BottomNavigationBar mobileNavigation() {
+      return BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Colors.indigo,
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'Favorites',
+              backgroundColor: Colors.red),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.cloud),
+              label: 'Weather',
+              backgroundColor: Colors.blue),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.info),
+              label: 'About',
+              backgroundColor: Colors.black),
+        ],
+        currentIndex: selectedIndex,
+        onTap: (value) {
+          setState(() {
+            selectedIndex = value;
+          });
+        },
+      );
+    }
+
+    NavigationRail mainNavigation(constraints) {
+      return NavigationRail(
+        extended: constraints.maxWidth >= 600,
+        destinations: [
+          NavigationRailDestination(
+            icon: Icon(Icons.home),
+            label: Text('Home'),
+          ),
+          NavigationRailDestination(
+            icon: Icon(Icons.favorite),
+            label: Text('Favorites'),
+          ),
+          NavigationRailDestination(
+            icon: Icon(Icons.cloud),
+            label: Text('Weather'),
+          ),
+          NavigationRailDestination(
+            icon: Icon(Icons.info),
+            label: Text('About'),
+          ),
+        ],
+        selectedIndex: selectedIndex,
+        onDestinationSelected: (value) {
+          setState(() {
+            selectedIndex = value;
+          });
+        },
+      );
+    }
 
     return Scaffold(
       body: LayoutBuilder(
@@ -60,84 +120,13 @@ class _MyHomePageState extends State<MyHomePage> {
             return Column(
               children: [
                 Expanded(child: mainArea),
-                SafeArea(
-                  child: BottomNavigationBar(
-                    items: [
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.home),
-                        label: 'Home',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite),
-                        label: 'Favorites',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.cloud),
-                        label: 'Weather',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.cloud),
-                        label: 'Github',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.cloud),
-                        label: 'LinkedIn',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.cloud),
-                        label: 'About',
-                      ),
-                    ],
-                    currentIndex: selectedIndex,
-                    onTap: (value) {
-                      setState(() {
-                        selectedIndex = value;
-                      });
-                    },
-                  ),
-                )
+                SafeArea(child: mobileNavigation()),
               ],
             );
           } else {
             return Row(
               children: [
-                SafeArea(
-                  child: NavigationRail(
-                    extended: constraints.maxWidth >= 600,
-                    destinations: [
-                      NavigationRailDestination(
-                        icon: Icon(Icons.home),
-                        label: Text('Home'),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.favorite),
-                        label: Text('Favorites'),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.cloud),
-                        label: Text('Weather'),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.cloud),
-                        label: Text('Github'),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.cloud),
-                        label: Text('LinkedIn'),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.cloud),
-                        label: Text('About'),
-                      ),
-                    ],
-                    selectedIndex: selectedIndex,
-                    onDestinationSelected: (value) {
-                      setState(() {
-                        selectedIndex = value;
-                      });
-                    },
-                  ),
-                ),
+                SafeArea(child: mainNavigation(constraints)),
                 Expanded(child: mainArea),
               ],
             );
