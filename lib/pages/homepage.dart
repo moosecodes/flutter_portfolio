@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
-import '../components/big_card.dart';
+import '../components/word_pair_card.dart';
 import 'history.dart';
 import 'package:provider/provider.dart';
 
