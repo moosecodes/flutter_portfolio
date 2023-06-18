@@ -10,15 +10,12 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  // late Future futureWeather;
-  late Future futureWeatherForecast;
-  var moose = <Widget>[];
+  late Future futureWeatherApi;
 
   @override
   void initState() {
     super.initState();
-    // futureWeather = getCurrentWeather();
-    futureWeatherForecast = getWeatherForecast();
+    futureWeatherApi = getWeatherForecast();
   }
 
   @override
@@ -27,84 +24,71 @@ class _WeatherPageState extends State<WeatherPage> {
     // var theme = Theme.of(context);
 
     currentWeatherWidget(data) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Expanded(
-            child: Card(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Row(
-                    children: [
-                      Text(data['location']['name'],
-                          style: TextStyle(color: Colors.black)),
-                      Text("${data['current']['temp_f'].toString()} F",
-                          style: TextStyle(color: Colors.black)),
-                      Text(data['current']['condition']['text'],
-                          style: TextStyle(color: Colors.black)),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Image(
-                        image: NetworkImage(
-                            "http:${data['current']['condition']['icon']}"),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+      return Card(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Column(
+              children: [
+                Image(
+                  image: NetworkImage(
+                      "http:${data['current']['condition']['icon']}"),
+                ),
+                Text(data['current']['condition']['text'],
+                    style: TextStyle(color: Colors.black)),
+                Text("${data['current']['temp_f'].truncate().toString()} F",
+                    style: TextStyle(color: Colors.black54, fontSize: 42)),
+              ],
             ),
-          ),
-        ],
+          ],
+        ),
       );
     }
 
     weatherForecastWidget(data, i) {
       var forecast = data['forecast']['forecastday'];
+      var date = DateFormat.MMMd().format(DateTime.parse(forecast[i]['date']));
 
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Expanded(
-            child: Card(
-              child: Column(
-                children: [
-                  Text(DateFormat.MMMd()
-                      .format(DateTime.parse(forecast[i]['date']))),
-                  Image(
-                    image: NetworkImage(
-                        "http:${forecast[i]['day']['condition']['icon']}"),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(forecast[i]['day']['condition']['text'].toString()),
-                      Text("${forecast[i]['day']['mintemp_f'].toString()} F"),
-                      Text("${forecast[i]['day']['maxtemp_f'].toString()} F"),
-                    ],
-                  ),
-                ],
-              ),
+      return Card(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(
+              date,
+              style: TextStyle(fontWeight: FontWeight.w600),
             ),
-          ),
-          SizedBox(
-            height: 120,
-          ),
-        ],
+            Image(
+              image: NetworkImage(
+                  "http:${forecast[i]['day']['condition']['icon']}"),
+            ),
+            Text(
+              "${forecast[i]['day']['mintemp_f'].truncate().toString()} F",
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
+            Text(
+              "${forecast[i]['day']['maxtemp_f'].truncate().toString()} F",
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
+          ],
+        ),
       );
     }
 
-    var getWeatherForecast = Center(
+    Center getWeatherForecast = Center(
       child: FutureBuilder(
-        future: futureWeatherForecast,
+        future: futureWeatherApi,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             var data = jsonDecode(snapshot.data!.body);
 
             return Column(
               children: [
+                SizedBox(height: 20),
+                Text(
+                  "${data['location']['name']}",
+                  style: TextStyle(fontSize: 24),
+                ),
+                SizedBox(height: 20),
                 currentWeatherWidget(data),
                 for (var i = 0; i < data['forecast']['forecastday'].length; i++)
                   weatherForecastWidget(data, i),
@@ -120,9 +104,9 @@ class _WeatherPageState extends State<WeatherPage> {
     );
 
     return Scaffold(
-      body: ListView(children: [
-        getWeatherForecast,
-      ]),
+      body: SafeArea(
+        child: getWeatherForecast,
+      ),
     );
   }
 }

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         title: 'Moosecodes Portfolio Site Flutter App',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         ),
         home: MyHomePage(),
       ),
@@ -59,5 +59,3 @@ class MyAppState extends ChangeNotifier {
     notifyListeners();
   }
 }
-
-
