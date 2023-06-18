@@ -2,7 +2,7 @@ import 'package:mc_portfolio_site/pages/about.dart';
 
 import 'weather.dart';
 import 'favorites.dart';
-import 'homepage.dart';
+import 'wordpairs.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -11,7 +11,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int selectedIndex = 2;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +21,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
     switch (selectedIndex) {
       case 0:
-        page = HomePage();
+        page = AboutPage();
         break;
       case 1:
-        page = FavoritesPage();
-        break;
-      case 2:
         page = WeatherPage();
         break;
-      case 3:
-        page = AboutPage();
+      case 2:
+        page = FavoritesPage();
         break;
-      case 4:
-        page = AboutPage();
+      case 3:
+        page = WordPairPage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
@@ -41,12 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // The container for the current page, with its background color
     // and subtle switching animation.
-    ColoredBox mainArea = ColoredBox(
-      color: colorScheme.inversePrimary,
-      child: AnimatedSwitcher(
-        duration: Duration(milliseconds: 300),
-        child: page,
-      ),
+    AnimatedSwitcher mainArea = AnimatedSwitcher(
+      duration: Duration(milliseconds: 300),
+      child: page,
     );
 
     BottomNavigationBar mobileNavigation() {
@@ -58,16 +52,16 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor: Colors.deepPurple,
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Favorites',
-              backgroundColor: Colors.red),
-          BottomNavigationBarItem(
               icon: Icon(Icons.cloud),
               label: 'Weather',
+              backgroundColor: Colors.red),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'Favorites',
               backgroundColor: Colors.blue),
           BottomNavigationBarItem(
-              icon: Icon(Icons.info),
-              label: 'About',
+              icon: Icon(Icons.flip),
+              label: 'Word Pairs',
               backgroundColor: Colors.black),
         ],
         currentIndex: selectedIndex,
@@ -88,16 +82,16 @@ class _MyHomePageState extends State<MyHomePage> {
             label: Text('Home'),
           ),
           NavigationRailDestination(
-            icon: Icon(Icons.favorite),
-            label: Text('Favorites'),
-          ),
-          NavigationRailDestination(
             icon: Icon(Icons.cloud),
             label: Text('Weather'),
           ),
           NavigationRailDestination(
-            icon: Icon(Icons.info),
-            label: Text('About'),
+            icon: Icon(Icons.favorite),
+            label: Text('Favorites'),
+          ),
+          NavigationRailDestination(
+            icon: Icon(Icons.flip),
+            label: Text('Word Pairs'),
           ),
         ],
         selectedIndex: selectedIndex,

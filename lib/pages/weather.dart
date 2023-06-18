@@ -30,14 +30,19 @@ class _WeatherPageState extends State<WeatherPage> {
           children: [
             Column(
               children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Text("${data['current']['temp_f'].truncate().toString()} F",
+                    style: TextStyle(fontSize: 42)),
                 Image(
                   image: NetworkImage(
                       "http:${data['current']['condition']['icon']}"),
                 ),
-                Text(data['current']['condition']['text'],
-                    style: TextStyle(color: Colors.black)),
-                Text("${data['current']['temp_f'].truncate().toString()} F",
-                    style: TextStyle(color: Colors.black54, fontSize: 42)),
+                Text(data['current']['condition']['text']),
+                SizedBox(
+                  height: 20,
+                ),
               ],
             ),
           ],

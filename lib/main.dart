@@ -17,10 +17,11 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
+        darkTheme: ThemeData.dark(),
         title: 'Moosecodes Portfolio Site Flutter App',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         ),
         home: MyHomePage(),
       ),

@@ -4,7 +4,7 @@ import '../components/word_pair_card.dart';
 import 'history.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatelessWidget {
+class WordPairPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
