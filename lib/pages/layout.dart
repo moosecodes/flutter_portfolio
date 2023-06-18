@@ -3,6 +3,7 @@ import 'package:mc_portfolio_site/pages/about.dart';
 import 'weather.dart';
 import 'favorites.dart';
 import 'wordpairs.dart';
+import 'news.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -15,8 +16,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
-
     Widget page;
 
     switch (selectedIndex) {
@@ -32,6 +31,8 @@ class _MyHomePageState extends State<MyHomePage> {
       case 3:
         page = WordPairPage();
         break;
+      case 4:
+        page = NewsPage();
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -63,6 +64,10 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: Icon(Icons.flip),
               label: 'Word Pairs',
               backgroundColor: Colors.black),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.newspaper),
+              label: 'News',
+              backgroundColor: Colors.black),
         ],
         currentIndex: selectedIndex,
         onTap: (value) {
@@ -92,6 +97,10 @@ class _MyHomePageState extends State<MyHomePage> {
           NavigationRailDestination(
             icon: Icon(Icons.flip),
             label: Text('Word Pairs'),
+          ),
+          NavigationRailDestination(
+            icon: Icon(Icons.newspaper),
+            label: Text('News'),
           ),
         ],
         selectedIndex: selectedIndex,

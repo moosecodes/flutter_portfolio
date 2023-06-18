@@ -1,29 +1,48 @@
-import 'package:intl/intl.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import '../classes/classes.dart';
 
-class WeatherPage extends StatefulWidget {
+class NewsPage extends StatefulWidget {
   @override
-  State<WeatherPage> createState() => _WeatherPageState();
+  State<NewsPage> createState() => _NewsPageState();
 }
 
-class _WeatherPageState extends State<WeatherPage> {
-  // late Future futureWeather;
-  late Future futureWeatherForecast;
+class _NewsPageState extends State<NewsPage> {
+  late Future futureNewsArticles;
 
   @override
   void initState() {
     super.initState();
+    futureNewsArticles = getNewsArticles();
   }
 
   @override
   Widget build(BuildContext context) {
+    Center getNewsArticles = Center(
+      child: FutureBuilder(
+          future: futureNewsArticles,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              var data = jsonDecode(snapshot.data!.body);
+              print(data['articles'].length);
+
+              return ListView(children: [
+                SizedBox(
+                  height: 20,
+                ),
+                for (var i = 0; i < data['articles'].length; i++)
+                  Text(data['articles'][i]['title']),
+              ]);
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
+            return const CircularProgressIndicator();
+          }),
+    );
+
     return Scaffold(
-      body: ListView(children: [
-        Text(' news '),
-      ]),
+      body: SafeArea(child: getNewsArticles),
     );
   }
 }
