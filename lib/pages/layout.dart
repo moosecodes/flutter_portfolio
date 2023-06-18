@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.deepPurple,
+            backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.cloud),
@@ -59,15 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite),
               label: 'Favorites',
-              backgroundColor: Colors.blue),
+              backgroundColor: Colors.red),
           BottomNavigationBarItem(
-              icon: Icon(Icons.flip),
-              label: 'Word Pairs',
-              backgroundColor: Colors.black),
+            icon: Icon(Icons.flip),
+            label: 'Word Pairs',
+          ),
           BottomNavigationBarItem(
               icon: Icon(Icons.newspaper),
               label: 'News',
-              backgroundColor: Colors.black),
+              backgroundColor: Colors.red),
         ],
         currentIndex: selectedIndex,
         onTap: (value) {

@@ -15,7 +15,7 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   void initState() {
     super.initState();
-    futureWeatherApi = getWeatherForecast();
+    futureWeatherApi = getWeatherForecast(zip: '60031');
   }
 
   @override
