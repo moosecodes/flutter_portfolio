@@ -27,35 +27,50 @@ class _WeatherPageState extends State<WeatherPage> {
     // var theme = Theme.of(context);
 
     currentWeatherWidget(data) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(data['location']['name']),
-          Text(data['current']['temp_f'].toString()),
-          Text(data['current']['condition']['text']),
-          Text(DateFormat.yMMMd().format(DateTime.now())),
-          Image(
-            image: NetworkImage("http:${data['current']['condition']['icon']}"),
-          ),
-        ],
+      return Container(
+        color: Colors.deepOrange,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              children: [
+                Image(
+                  image: NetworkImage(
+                      "http:${data['current']['condition']['icon']}"),
+                ),
+                Text(data['current']['condition']['text'],
+                    style: TextStyle(color: Colors.white)),
+              ],
+            ),
+            Text(data['location']['name'],
+                style: TextStyle(color: Colors.white)),
+            Text("${data['current']['temp_f'].toString()} F",
+                style: TextStyle(color: Colors.white)),
+          ],
+        ),
       );
     }
 
     weatherForecastWidget(data, i) {
-      print(data['forecast']['forecastday'][i]['day']);
+      var forecast = data['forecast']['forecastday'];
+
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(data['forecast']['forecastday'][i]['date']),
-          Text(data['forecast']['forecastday'][i]['day']['mintemp_f']
-              .toString()),
-          Text(data['forecast']['forecastday'][i]['day']['maxtemp_f']
-              .toString()),
-          Text(data['forecast']['forecastday'][i]['day']['condition']['text']
-              .toString()),
-          Image(
-            image: NetworkImage(
-                "http:${data['forecast']['forecastday'][i]['day']['condition']['icon']}"),
+          Column(
+            children: [
+              Image(
+                image: NetworkImage(
+                    "http:${forecast[i]['day']['condition']['icon']}"),
+              ),
+              Text(forecast[i]['day']['condition']['text'].toString()),
+            ],
+          ),
+          Text("${forecast[i]['day']['mintemp_f'].toString()} F"),
+          Text("${forecast[i]['day']['maxtemp_f'].toString()} F"),
+          Text(DateFormat.MMMd().format(DateTime.parse(forecast[i]['date']))),
+          SizedBox(
+            height: 120,
           ),
         ],
       );

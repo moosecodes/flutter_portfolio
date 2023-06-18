@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.indigo,
+            backgroundColor: Colors.deepPurple,
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite),
