@@ -27,27 +27,37 @@ class _WeatherPageState extends State<WeatherPage> {
     // var theme = Theme.of(context);
 
     currentWeatherWidget(data) {
-      return Container(
-        color: Colors.deepOrange,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(
-              children: [
-                Image(
-                  image: NetworkImage(
-                      "http:${data['current']['condition']['icon']}"),
-                ),
-                Text(data['current']['condition']['text'],
-                    style: TextStyle(color: Colors.white)),
-              ],
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Expanded(
+            child: Card(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    children: [
+                      Text(data['location']['name'],
+                          style: TextStyle(color: Colors.black)),
+                      Text("${data['current']['temp_f'].toString()} F",
+                          style: TextStyle(color: Colors.black)),
+                      Text(data['current']['condition']['text'],
+                          style: TextStyle(color: Colors.black)),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Image(
+                        image: NetworkImage(
+                            "http:${data['current']['condition']['icon']}"),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            Text(data['location']['name'],
-                style: TextStyle(color: Colors.white)),
-            Text("${data['current']['temp_f'].toString()} F",
-                style: TextStyle(color: Colors.white)),
-          ],
-        ),
+          ),
+        ],
       );
     }
 
@@ -57,18 +67,28 @@ class _WeatherPageState extends State<WeatherPage> {
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Column(
-            children: [
-              Image(
-                image: NetworkImage(
-                    "http:${forecast[i]['day']['condition']['icon']}"),
+          Expanded(
+            child: Card(
+              child: Column(
+                children: [
+                  Text(DateFormat.MMMd()
+                      .format(DateTime.parse(forecast[i]['date']))),
+                  Image(
+                    image: NetworkImage(
+                        "http:${forecast[i]['day']['condition']['icon']}"),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(forecast[i]['day']['condition']['text'].toString()),
+                      Text("${forecast[i]['day']['mintemp_f'].toString()} F"),
+                      Text("${forecast[i]['day']['maxtemp_f'].toString()} F"),
+                    ],
+                  ),
+                ],
               ),
-              Text(forecast[i]['day']['condition']['text'].toString()),
-            ],
+            ),
           ),
-          Text("${forecast[i]['day']['mintemp_f'].toString()} F"),
-          Text("${forecast[i]['day']['maxtemp_f'].toString()} F"),
-          Text(DateFormat.MMMd().format(DateTime.parse(forecast[i]['date']))),
           SizedBox(
             height: 120,
           ),
