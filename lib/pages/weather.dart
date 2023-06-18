@@ -1,6 +1,4 @@
-import 'package:provider/provider.dart';
-import '../main.dart';
-import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -14,6 +12,7 @@ class WeatherPage extends StatefulWidget {
 class _WeatherPageState extends State<WeatherPage> {
   // late Future futureWeather;
   late Future futureWeatherForecast;
+  var moose = <Widget>[];
 
   @override
   void initState() {
@@ -27,53 +26,53 @@ class _WeatherPageState extends State<WeatherPage> {
     // var appState = context.watch<MyAppState>();
     // var theme = Theme.of(context);
 
+    currentWeatherWidget(data) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(data['location']['name']),
+          Text(data['current']['temp_f'].toString()),
+          Text(data['current']['condition']['text']),
+          Text(DateFormat.yMMMd().format(DateTime.now())),
+          Image(
+            image: NetworkImage("http:${data['current']['condition']['icon']}"),
+          ),
+        ],
+      );
+    }
+
+    weatherForecastWidget(data, i) {
+      print(data['forecast']['forecastday'][i]['day']);
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(data['forecast']['forecastday'][i]['date']),
+          Text(data['forecast']['forecastday'][i]['day']['mintemp_f']
+              .toString()),
+          Text(data['forecast']['forecastday'][i]['day']['maxtemp_f']
+              .toString()),
+          Text(data['forecast']['forecastday'][i]['day']['condition']['text']
+              .toString()),
+          Image(
+            image: NetworkImage(
+                "http:${data['forecast']['forecastday'][i]['day']['condition']['icon']}"),
+          ),
+        ],
+      );
+    }
+
     var getWeatherForecast = Center(
       child: FutureBuilder(
         future: futureWeatherForecast,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             var data = jsonDecode(snapshot.data!.body);
-            var locationName = data['location']['name'];
-            var currentTemp = data['current']['temp_f'];
-            var forecast = data['forecast']['forecastday'];
-            var conditionText = data['current']['condition']['text'];
-            var conditionIcon = data['current']['condition']['icon'];
-            print(forecast);
 
             return Column(
               children: [
-                Row(
-                  children: [
-                    Text(locationName),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text(currentTemp.toString()),
-                    Text(conditionText),
-                    Image(
-                      image: NetworkImage("http:$conditionIcon"),
-                    ),
-                  ],
-                ),
-                for (var i in forecast) Text(i['date'].toString()),
-                SizedBox(
-                  width: 20,
-                ),
-                for (var i in forecast) Text(i['day']['mintemp_f'].toString()),
-                SizedBox(
-                  width: 20,
-                ),
-                for (var i in forecast) Text(i['day']['maxtemp_f'].toString()),
-                SizedBox(
-                  width: 20,
-                ),
-                for (var i in forecast)
-                  Text(i['day']['condition']['text'].toString()),
-                for (var i in forecast)
-                  Image(
-                    image:
-                        NetworkImage("http:${i['day']['condition']['icon']}"),
-                  ),
+                currentWeatherWidget(data),
+                for (var i = 0; i < data['forecast']['forecastday'].length; i++)
+                  weatherForecastWidget(data, i),
               ],
             );
           } else if (snapshot.hasError) {

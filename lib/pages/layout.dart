@@ -35,8 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
       case 4:
         page = AboutPage();
         break;
-      case 5:
-        page = AboutPage();
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
