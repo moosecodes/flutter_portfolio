@@ -37,7 +37,7 @@ class _WeatherPageState extends State<WeatherPage> {
                     style: TextStyle(fontSize: 42)),
                 Image(
                   image: NetworkImage(
-                      "http:${data['current']['condition']['icon']}"),
+                      "https:${data['current']['condition']['icon']}"),
                 ),
                 Text(data['current']['condition']['text']),
                 SizedBox(
