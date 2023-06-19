@@ -86,7 +86,7 @@ class _WeatherPageState extends State<WeatherPage> {
           if (snapshot.hasData) {
             var data = jsonDecode(snapshot.data!.body);
 
-            return Column(
+            return ListView(
               children: [
                 SizedBox(height: 20),
                 Text(
@@ -110,6 +110,7 @@ class _WeatherPageState extends State<WeatherPage> {
 
     return Scaffold(
       body: SafeArea(
+        maintainBottomViewPadding: true,
         child: getWeatherForecast,
       ),
     );

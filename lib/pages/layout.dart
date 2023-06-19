@@ -37,8 +37,6 @@ class _MyHomePageState extends State<MyHomePage> {
         throw UnimplementedError('no widget for $selectedIndex');
     }
 
-    // The container for the current page, with its background color
-    // and subtle switching animation.
     AnimatedSwitcher mainArea = AnimatedSwitcher(
       duration: Duration(milliseconds: 300),
       child: page,
@@ -50,24 +48,24 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.cloud),
-              label: 'Weather',
-              backgroundColor: Colors.red),
+            icon: Icon(Icons.cloud),
+            label: 'Weather',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Favorites',
-              backgroundColor: Colors.red),
+            icon: Icon(Icons.favorite),
+            label: 'Favorites',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.flip),
             label: 'Word Pairs',
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.newspaper),
-              label: 'News',
-              backgroundColor: Colors.red),
+            icon: Icon(Icons.newspaper),
+            label: 'News',
+          ),
         ],
         currentIndex: selectedIndex,
         onTap: (value) {
@@ -80,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     NavigationRail mainNavigation(constraints) {
       return NavigationRail(
+        minExtendedWidth: 200,
         extended: constraints.maxWidth >= 600,
         destinations: [
           NavigationRailDestination(
@@ -112,27 +111,29 @@ class _MyHomePageState extends State<MyHomePage> {
       );
     }
 
-    return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          if (constraints.maxWidth < 450) {
-            // Use a more mobile-friendly layout with BottomNavigationBar
-            // on narrow screens.
-            return Column(
-              children: [
-                Expanded(child: mainArea),
-                SafeArea(child: mobileNavigation()),
-              ],
-            );
-          } else {
-            return Row(
-              children: [
-                SafeArea(child: mainNavigation(constraints)),
-                Expanded(child: mainArea),
-              ],
-            );
-          }
-        },
+    return SafeArea(
+      child: Scaffold(
+        body: LayoutBuilder(
+          builder: (context, constraints) {
+            if (constraints.maxWidth < 450) {
+              // Use a more mobile-friendly layout with BottomNavigationBar
+              // on narrow screens.
+              return Column(
+                children: [
+                  Expanded(child: mainArea),
+                  SafeArea(child: mobileNavigation()),
+                ],
+              );
+            } else {
+              return Row(
+                children: [
+                  SafeArea(child: mainNavigation(constraints)),
+                  Expanded(child: mainArea),
+                ],
+              );
+            }
+          },
+        ),
       ),
     );
   }
