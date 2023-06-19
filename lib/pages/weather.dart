@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import '../classes/classes.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class WeatherPage extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   void initState() {
     super.initState();
-    futureWeatherApi = getWeatherForecast(zip: '60031');
+    futureWeatherApi = getWeatherForecast(zip: '90004');
   }
 
   @override

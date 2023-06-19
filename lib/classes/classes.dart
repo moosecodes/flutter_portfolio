@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:async';
+import 'package:location/location.dart';
 
 Future<http.Response> getCurrentWeather({zip = '90004'}) async {
   String params = 'key=c0d5e7fcbbb743359b1190117232901&q=$zip&aqi=no';

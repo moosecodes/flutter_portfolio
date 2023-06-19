@@ -4,6 +4,7 @@ import 'pages/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:english_words/english_words.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,11 +18,11 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        darkTheme: ThemeData.dark(),
-        title: 'Moosecodes Portfolio Site Flutter App',
+        title: 'Moosecodes Portfolio Site',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+          textTheme: GoogleFonts.orbitronTextTheme(),
+          cardColor: Colors.red,
         ),
         home: MyHomePage(),
       ),

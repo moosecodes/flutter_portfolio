@@ -1,5 +1,23 @@
 import 'package:flutter/material.dart';
 import '../file_image_widget.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+
+const colorizeColors = [
+  Colors.black,
+  Colors.indigoAccent,
+  Colors.indigo,
+  Colors.redAccent,
+  Colors.deepOrange,
+  Colors.deepPurple,
+];
+
+const colorizeTextStyle = TextStyle(
+  fontSize: 32.0,
+);
+
+const colorizeTextStyleSmall = TextStyle(
+  fontSize: 20.0,
+);
 
 class AboutPage extends StatelessWidget {
   final List<Column> infoPanel = <Column>[
@@ -10,12 +28,32 @@ class AboutPage extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        Text(
-          'Mustafa Ishaq',
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
+        AnimatedTextKit(
+          animatedTexts: [
+            ColorizeAnimatedText(
+              'Mustafa Ishaq',
+              textStyle: colorizeTextStyle,
+              colors: colorizeColors,
+            ),
+          ],
+          isRepeatingAnimation: false,
+          onTap: () {
+            print("Tap Event");
+          },
         ),
-        Text('Software Engineer',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400)),
+        AnimatedTextKit(
+          animatedTexts: [
+            ColorizeAnimatedText(
+              'Software Engineer',
+              textStyle: colorizeTextStyleSmall,
+              colors: List.from(colorizeColors.reversed),
+            ),
+          ],
+          isRepeatingAnimation: false,
+          onTap: () {
+            print("Tap Event");
+          },
+        ),
         Text('LinkedIn Github'),
         SizedBox(height: 20),
         Text('DePaul University'),
