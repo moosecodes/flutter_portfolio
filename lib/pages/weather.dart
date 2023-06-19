@@ -64,7 +64,7 @@ class _WeatherPageState extends State<WeatherPage> {
             ),
             Image(
               image: NetworkImage(
-                  "http:${forecast[i]['day']['condition']['icon']}"),
+                  "https:${forecast[i]['day']['condition']['icon']}"),
             ),
             Text(
               "${forecast[i]['day']['mintemp_f'].truncate().toString()} F",
