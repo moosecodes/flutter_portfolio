@@ -26,13 +26,13 @@ class _MyHomePageState extends State<MyHomePage> {
         page = WeatherPage();
         break;
       case 2:
-        page = FavoritesPage();
+        page = NewsPage();
         break;
       case 3:
         page = WordPairPage();
         break;
       case 4:
-        page = NewsPage();
+        page = FavoritesPage();
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -55,16 +55,16 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Weather',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorites',
+            icon: Icon(Icons.newspaper),
+            label: 'News',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.flip),
             label: 'Word Pairs',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.newspaper),
-            label: 'News',
+            icon: Icon(Icons.favorite),
+            label: 'Favorites',
           ),
         ],
         currentIndex: selectedIndex,
@@ -90,16 +90,16 @@ class _MyHomePageState extends State<MyHomePage> {
             label: Text('Weather'),
           ),
           NavigationRailDestination(
-            icon: Icon(Icons.favorite),
-            label: Text('Favorites'),
+            icon: Icon(Icons.newspaper),
+            label: Text('News'),
           ),
           NavigationRailDestination(
             icon: Icon(Icons.flip),
             label: Text('Word Pairs'),
           ),
           NavigationRailDestination(
-            icon: Icon(Icons.newspaper),
-            label: Text('News'),
+            icon: Icon(Icons.favorite),
+            label: Text('Favorites'),
           ),
         ],
         selectedIndex: selectedIndex,

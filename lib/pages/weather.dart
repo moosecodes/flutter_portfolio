@@ -90,9 +90,11 @@ class _WeatherPageState extends State<WeatherPage> {
             return ListView(
               children: [
                 SizedBox(height: 20),
-                Text(
-                  "${data['location']['name']}",
-                  style: TextStyle(fontSize: 24),
+                Center(
+                  child: Text(
+                    "${data['location']['name']}",
+                    style: TextStyle(fontSize: 24),
+                  ),
                 ),
                 SizedBox(height: 20),
                 currentWeatherWidget(data),
