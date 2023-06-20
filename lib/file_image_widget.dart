@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class FileImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double imageHeight = 300;
+    double imageHeight = 200;
 
     return Container(
       padding: EdgeInsets.all(3), // Border width

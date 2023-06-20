@@ -14,7 +14,7 @@ const colorizeColors = [
 ];
 
 const colorizeTextStyle = TextStyle(
-  fontSize: 32.0,
+  fontSize: 28.0,
 );
 
 const colorizeTextStyleSmall = TextStyle(
@@ -47,6 +47,9 @@ class AboutPage extends StatelessWidget {
     Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
+        SizedBox(
+          height: 20,
+        ),
         FileImageWidget(),
         SizedBox(
           height: 20,
@@ -66,10 +69,22 @@ class AboutPage extends StatelessWidget {
         ),
         AnimatedTextKit(
           animatedTexts: [
+            TypewriterAnimatedText(
+              speed: Duration(milliseconds: 15),
+              'Front End UI/UX',
+            ),
+            TypewriterAnimatedText(
+              speed: Duration(milliseconds: 15),
+              'Back End Architecture',
+            ),
+            TypewriterAnimatedText(
+              speed: Duration(milliseconds: 15),
+              'Mobile Applications',
+            ),
             ColorizeAnimatedText(
               'Software Engineer',
               textStyle: colorizeTextStyleSmall,
-              colors: List.from(colorizeColors.reversed),
+              colors: colorizeColors,
             ),
           ],
           isRepeatingAnimation: false,
@@ -103,6 +118,7 @@ class AboutPage extends StatelessWidget {
         ),
         Wrap(
           spacing: 100,
+          runSpacing: 40.0,
           children: [
             for (var i = 0; i < svgLogos.length; i++)
               ClipOval(
@@ -128,6 +144,7 @@ class AboutPage extends StatelessWidget {
         ),
         Wrap(
           spacing: 100,
+          runSpacing: 40.0,
           children: [
             for (var i = 0; i < svgLanguages.length; i++)
               ClipOval(
@@ -144,6 +161,9 @@ class AboutPage extends StatelessWidget {
         ),
         FlutterLogo(
           size: 40,
+        ),
+        SizedBox(
+          height: 20,
         ),
         Text('This site was made with Flutter!'),
       ],

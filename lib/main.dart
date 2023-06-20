@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
           textTheme: GoogleFonts.orbitronTextTheme(),
-          cardColor: Colors.red,
         ),
         home: MyHomePage(),
       ),
