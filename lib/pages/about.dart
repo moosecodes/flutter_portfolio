@@ -92,6 +92,9 @@ class AboutPage extends StatelessWidget {
             print("Tap Event");
           },
         ),
+        SizedBox(
+          height: 20,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
