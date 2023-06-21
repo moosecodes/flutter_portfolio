@@ -1,8 +1,8 @@
-import 'package:mc_portfolio_site/pages/home.dart';
+import 'package:mc_portfolio_site/pages/about.dart';
 
 import 'weather.dart';
 import 'favorites.dart';
-import 'about.dart';
+import 'home.dart';
 import 'news.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
         page = NewsPage();
         break;
       case 3:
-        page = AboutMePage();
+        page = AboutPage();
         break;
       case 4:
         page = FavoritesPage();

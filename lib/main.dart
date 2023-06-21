@@ -15,6 +15,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
