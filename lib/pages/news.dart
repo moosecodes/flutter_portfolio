@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
-import '../classes/classes.dart';
+import '../classes/utils.dart';
 
 class NewsPage extends StatefulWidget {
   @override
