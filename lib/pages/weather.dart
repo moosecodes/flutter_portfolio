@@ -26,6 +26,7 @@ class _WeatherPageState extends State<WeatherPage> {
 
     currentWeatherWidget(data) {
       return Card(
+        color: Colors.deepPurple,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -34,13 +35,33 @@ class _WeatherPageState extends State<WeatherPage> {
                 SizedBox(
                   height: 20,
                 ),
-                Text("${data['current']['temp_f'].truncate().toString()} F",
-                    style: TextStyle(fontSize: 42)),
+                AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      speed: Duration(milliseconds: 150),
+                      textStyle: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      "${data['current']['temp_f'].truncate().toString()} F",
+                    ),
+                  ],
+                  isRepeatingAnimation: false,
+                  onTap: () {
+                    print("Tap Event");
+                  },
+                ),
                 Image(
                   image: NetworkImage(
                       "https:${data['current']['condition']['icon']}"),
                 ),
-                Text(data['current']['condition']['text']),
+                Text(
+                  data['current']['condition']['text'],
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
                 SizedBox(
                   height: 20,
                 ),
