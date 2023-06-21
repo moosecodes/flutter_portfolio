@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import '../file_image_widget.dart';
+import '../main.dart';
+import '../components/hero_image.dart';
+import '../components/hero_description.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 const colorizeColors = [
   Colors.black,
@@ -21,16 +24,11 @@ const colorizeTextStyleSmall = TextStyle(
   fontSize: 20.0,
 );
 
-Future<void> _launchUrl(url) async {
-  if (!await launchUrl(url)) {
-    throw Exception('Could not launch $url');
-  }
-}
-
 const svgLogos = [
   'images/ama.svg',
   'images/jamanetwork.svg',
   'images/tebra.svg',
+  'images/adp.svg'
 ];
 
 const svgLanguages = [
@@ -42,18 +40,22 @@ const svgLanguages = [
   'images/python.svg',
 ];
 
+Future<void> _launchUrl(url) async {
+  if (!await launchUrl(url)) {
+    throw Exception('Could not launch $url');
+  }
+}
+
 class HomePage extends StatelessWidget {
   final List<Column> infoPanel = <Column>[
     Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         SizedBox(
-          height: 20,
+          height: 40,
         ),
-        FileImageWidget(),
-        SizedBox(
-          height: 20,
-        ),
+        HeroImage(),
+        HeroDescription(),
         AnimatedTextKit(
           animatedTexts: [
             ColorizeAnimatedText(
@@ -63,9 +65,6 @@ class HomePage extends StatelessWidget {
             ),
           ],
           isRepeatingAnimation: false,
-          onTap: () {
-            print("Tap Event");
-          },
         ),
         AnimatedTextKit(
           animatedTexts: [
@@ -88,9 +87,6 @@ class HomePage extends StatelessWidget {
             ),
           ],
           isRepeatingAnimation: false,
-          onTap: () {
-            print("Tap Event");
-          },
         ),
         SizedBox(
           height: 20,
@@ -131,15 +127,6 @@ class HomePage extends StatelessWidget {
                       semanticsLabel: 'Company Logo'),
                 ),
               ),
-            ClipOval(
-              child: SizedBox.fromSize(
-                size: Size.fromRadius(48), // Image radius
-                child: Image.asset(
-                  'images/adp.png',
-                  height: 300,
-                ),
-              ),
-            ),
           ],
         ),
         SizedBox(
@@ -175,6 +162,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var theme = Theme.of(context);
+
     return Scaffold(
       body: SafeArea(
         child: ListView(

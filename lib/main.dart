@@ -15,8 +15,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
@@ -24,6 +22,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
           textTheme: GoogleFonts.orbitronTextTheme(),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         ),
         home: MyHomePage(),
       ),

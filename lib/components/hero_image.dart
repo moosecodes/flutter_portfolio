@@ -5,6 +5,22 @@ class HeroImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    double imageHeight = 200;
+    var theme = Theme.of(context);
+
+    return Container(
+      padding: EdgeInsets.all(3), // Border width
+      decoration: BoxDecoration(
+          color: theme.colorScheme.primary, shape: BoxShape.circle),
+      child: ClipOval(
+        child: SizedBox.fromSize(
+          size: Size.fromRadius(imageHeight / 2), // Image radius
+          child: Image.asset(
+            'images/linkedin.jpeg',
+            height: imageHeight,
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import '../classes/classes.dart';
+import '../classes/utils.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 class WeatherPage extends StatefulWidget {
@@ -22,11 +22,11 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
     // var appState = context.watch<MyAppState>();
-    // var theme = Theme.of(context);
+    var theme = Theme.of(context);
 
     currentWeatherWidget(data) {
       return Card(
-        color: Colors.deepPurple,
+        color: theme.colorScheme.primary,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
