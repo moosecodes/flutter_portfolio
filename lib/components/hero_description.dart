@@ -27,10 +27,9 @@ class HeroDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
+    // var theme = Theme.of(context);
 
-    return Container(
-        child: Column(
+    return Column(
       children: [
         SizedBox(
           height: 20,
@@ -45,21 +44,21 @@ class HeroDescription extends StatelessWidget {
           ],
           isRepeatingAnimation: false,
         ),
-        SizedBox(
-          height: 20,
-        ),
         AnimatedTextKit(
           animatedTexts: [
             TypewriterAnimatedText(
+              textStyle: colorizeTextStyleSmall,
               speed: Duration(milliseconds: 15),
               'Front End UI/UX',
             ),
             TypewriterAnimatedText(
+              textStyle: colorizeTextStyleSmall,
               speed: Duration(milliseconds: 15),
               'Back End Architecture',
             ),
             TypewriterAnimatedText(
               speed: Duration(milliseconds: 15),
+              textStyle: colorizeTextStyleSmall,
               'Mobile Applications',
             ),
             ColorizeAnimatedText(
@@ -98,6 +97,6 @@ class HeroDescription extends StatelessWidget {
           height: 40,
         ),
       ],
-    ));
+    );
   }
 }

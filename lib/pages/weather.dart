@@ -44,7 +44,7 @@ class _WeatherPageState extends State<WeatherPage> {
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
-                      "${data['current']['temp_f'].truncate().toString()} F",
+                      "${data['current']['temp_f'].truncate().toString()} F °",
                     ),
                   ],
                   isRepeatingAnimation: false,

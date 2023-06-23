@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import '../components/companies.dart';
 import '../components/hero_image.dart';
-import '../components/hero_description.dart';
 
 const double sizedBoxFactor = 20.0;
 
-class AboutPage extends StatelessWidget {
+class RecentWorkPage extends StatelessWidget {
   final List<Column> infoPanel = <Column>[
     Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -14,7 +13,6 @@ class AboutPage extends StatelessWidget {
           height: 40,
         ),
         HeroImage(),
-        HeroDescription(),
         CompaniesLanguagesWidget(),
       ],
     )

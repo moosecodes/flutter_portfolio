@@ -9,9 +9,19 @@ class HeroImage extends StatelessWidget {
     var theme = Theme.of(context);
 
     return Container(
-      padding: EdgeInsets.all(3), // Border width
+      padding: EdgeInsets.all(4), // Border width
       decoration: BoxDecoration(
-          color: theme.colorScheme.primary, shape: BoxShape.circle),
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.blue,
+              Colors.red,
+            ],
+          ),
+          color: theme.colorScheme.primary,
+          shape: BoxShape.circle),
+
       child: ClipOval(
         child: SizedBox.fromSize(
           size: Size.fromRadius(imageHeight / 2), // Image radius

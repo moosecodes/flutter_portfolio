@@ -20,11 +20,11 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'moosecodes.com',
+        title: 'Mustafa Ishaq | moosecodes.com',
         theme: ThemeData(
           useMaterial3: true,
           textTheme: GoogleFonts.orbitronTextTheme(),
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
         home: MyHomePage(),
       ),

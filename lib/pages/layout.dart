@@ -1,10 +1,12 @@
-import 'package:mc_portfolio_site/pages/about.dart';
+import 'package:flutter/material.dart';
+import '../pages/about.dart';
+import '../pages/recent_work.dart';
 
+import '../components/footer.dart';
 import 'weather.dart';
 import 'favorites.dart';
 import 'home.dart';
 import 'news.dart';
-import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -23,15 +25,18 @@ class _MyHomePageState extends State<MyHomePage> {
         page = HomePage();
         break;
       case 1:
-        page = WeatherPage();
-        break;
-      case 2:
-        page = NewsPage();
-        break;
-      case 3:
         page = AboutPage();
         break;
+      case 2:
+        page = RecentWorkPage();
+        break;
+      case 3:
+        page = WeatherPage();
+        break;
       case 4:
+        page = NewsPage();
+        break;
+      case 5:
         page = FavoritesPage();
       default:
         throw UnimplementedError('no widget for $selectedIndex');
@@ -50,25 +55,25 @@ class _MyHomePageState extends State<MyHomePage> {
               backgroundColor: Colors.black,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.cloud),
-              label: 'Weather',
-              backgroundColor: Colors.amber,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.newspaper),
-              label: 'News',
-              backgroundColor: Colors.red,
-            ),
-            BottomNavigationBarItem(
               icon: Icon(Icons.flip),
               label: 'About Me',
               backgroundColor: Colors.indigo,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Favorites',
-              backgroundColor: Colors.pink,
+              icon: Icon(Icons.cloud),
+              label: 'Weather',
+              backgroundColor: Colors.amber,
             ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.newspaper),
+            //   label: 'News',
+            //   backgroundColor: Colors.red,
+            // ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.favorite),
+            //   label: 'Favorites',
+            //   backgroundColor: Colors.pink,
+            // ),
           ],
           currentIndex: selectedIndex,
           onTap: (value) {
@@ -79,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
         );
 
     NavigationRail mainNavigation(constraints) => NavigationRail(
-          minExtendedWidth: 200,
+          minExtendedWidth: 300,
           extended: constraints.maxWidth >= 600,
           destinations: [
             NavigationRailDestination(
@@ -87,21 +92,25 @@ class _MyHomePageState extends State<MyHomePage> {
               label: Text('Home'),
             ),
             NavigationRailDestination(
-              icon: Icon(Icons.cloud),
-              label: Text('Weather'),
-            ),
-            NavigationRailDestination(
-              icon: Icon(Icons.newspaper),
-              label: Text('News'),
-            ),
-            NavigationRailDestination(
               icon: Icon(Icons.flip),
               label: Text('About Me'),
             ),
             NavigationRailDestination(
-              icon: Icon(Icons.favorite),
-              label: Text('Favorites'),
+              icon: Icon(Icons.work),
+              label: Text('Recent Work'),
             ),
+            NavigationRailDestination(
+              icon: Icon(Icons.cloud),
+              label: Text('Weather'),
+            ),
+            // NavigationRailDestination(
+            //   icon: Icon(Icons.newspaper),
+            //   label: Text('News'),
+            // ),
+            // NavigationRailDestination(
+            //   icon: Icon(Icons.favorite),
+            //   label: Text('Favorites'),
+            // ),
           ],
           selectedIndex: selectedIndex,
           onDestinationSelected: (value) {
