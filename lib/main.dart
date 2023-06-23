@@ -21,12 +21,19 @@ class MyApp extends StatelessWidget {
       create: (context) => MyAppState(),
       child: MaterialApp(
         title: 'Mustafa Ishaq | moosecodes.com',
+        home: MyHomePage(),
         theme: ThemeData(
           useMaterial3: true,
           textTheme: GoogleFonts.orbitronTextTheme(),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          cardTheme: CardTheme(
+            surfaceTintColor: Colors.red,
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+          ),
         ),
-        home: MyHomePage(),
       ),
     );
   }

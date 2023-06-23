@@ -81,20 +81,23 @@ class CompaniesWidget extends StatelessWidget {
               ),
               Card(
                 margin: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    for (var description in descriptions[org]?['desc'])
-                      SizedBox(
-                        width: 720,
-                        child: Text(
-                          description,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Helvetica',
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      for (var description in descriptions[org]?['desc'])
+                        SizedBox(
+                          width: 720,
+                          child: Text(
+                            description,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'Helvetica',
+                            ),
                           ),
                         ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
