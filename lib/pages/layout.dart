@@ -60,6 +60,11 @@ class _MyHomePageState extends State<MyHomePage> {
               backgroundColor: Colors.indigo,
             ),
             BottomNavigationBarItem(
+              icon: Icon(Icons.work),
+              label: 'Recent Work',
+              backgroundColor: Colors.amber,
+            ),
+            BottomNavigationBarItem(
               icon: Icon(Icons.cloud),
               label: 'Weather',
               backgroundColor: Colors.amber,

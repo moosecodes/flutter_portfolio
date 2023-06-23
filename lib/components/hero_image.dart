@@ -15,7 +15,7 @@ class HeroImage extends StatelessWidget {
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
             colors: [
-              Colors.blue,
+              Colors.indigo,
               Colors.red,
             ],
           ),

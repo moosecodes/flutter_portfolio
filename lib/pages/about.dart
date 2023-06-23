@@ -15,7 +15,7 @@ class AboutPage extends StatelessWidget {
         ),
         HeroImage(),
         HeroDescription(),
-        CompaniesLanguagesWidget(),
+        CompaniesWidget(),
       ],
     )
   ];
@@ -34,15 +34,6 @@ class AboutPage extends StatelessWidget {
 
 class SocialMedia extends StatelessWidget {
   const SocialMedia({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class HeroImageDescription extends StatelessWidget {
-  const HeroImageDescription({super.key});
 
   @override
   Widget build(BuildContext context) {

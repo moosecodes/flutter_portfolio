@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/hero_description.dart';
 import '../components/companies.dart';
 import '../components/hero_image.dart';
 
@@ -13,7 +14,8 @@ class RecentWorkPage extends StatelessWidget {
           height: 40,
         ),
         HeroImage(),
-        CompaniesLanguagesWidget(),
+        HeroDescription(),
+        CompaniesWidget(),
       ],
     )
   ];

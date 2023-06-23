@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Map<String, Map<String, dynamic>> descriptions = {
   'tebra': {
@@ -49,8 +50,17 @@ Map<String, Map<String, dynamic>> descriptions = {
   },
 };
 
-class CompaniesWidget extends StatelessWidget {
-  const CompaniesWidget({super.key});
+const svgLanguages = [
+  'images/javascript.svg',
+  'images/vue.svg',
+  'images/react.svg',
+  'images/php.svg',
+  'images/laravel.svg',
+  'images/python.svg',
+];
+
+class SkillsetWidget extends StatelessWidget {
+  const SkillsetWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,45 +70,34 @@ class CompaniesWidget extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'Discover Organizations I\'ve Worked For',
+                'Skill Set',
                 style: TextStyle(fontSize: 22),
                 textAlign: TextAlign.center,
               ),
             ],
           ),
         ),
-        for (var org in descriptions.keys)
-          Column(
-            children: [
+        SizedBox(
+          height: 40,
+        ),
+        Wrap(
+          spacing: 100,
+          runSpacing: 40.0,
+          children: [
+            Text(
+              'Languages',
+              style: TextStyle(fontSize: 20),
+            ),
+            for (var i = 0; i < svgLanguages.length; i++)
               ClipRRect(
                 child: SizedBox.fromSize(
-                  size: Size.fromRadius(75), // Image radius
-                  child: SvgPicture.asset(
-                    descriptions[org]?['image'],
-                    semanticsLabel: org[1],
-                  ),
+                  size: Size.fromRadius(48), // Image radius
+                  child: SvgPicture.asset(svgLanguages[i],
+                      semanticsLabel: 'Language Logo'),
                 ),
               ),
-              Card(
-                margin: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    for (var description in descriptions[org]?['desc'])
-                      SizedBox(
-                        width: 720,
-                        child: Text(
-                          description,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Helvetica',
-                          ),
-                        ),
-                      ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          ],
+        ),
         SizedBox(
           height: 40,
         ),
