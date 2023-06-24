@@ -102,23 +102,35 @@ class CompaniesWidget extends StatelessWidget {
                       for (var description in descriptions[org]?['heading'])
                         SizedBox(
                           width: 720,
-                          child: Text(
-                            description,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: 'Helvetica',
-                              fontWeight: FontWeight.bold,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 20,
+                            ),
+                            child: Text(
+                              description,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
                       for (var description in descriptions[org]?['desc'])
                         SizedBox(
                           width: 720,
-                          child: Text(
-                            description,
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontFamily: 'Helvetica',
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 20,
+                            ),
+                            child: Text(
+                              description,
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontFamily: 'Helvetica',
+                              ),
                             ),
                           ),
                         ),

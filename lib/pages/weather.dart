@@ -119,21 +119,9 @@ class _WeatherPageState extends State<WeatherPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: FlutterLogo(),
-                      ),
-                    ),
                     Padding(
                       padding: const EdgeInsets.all(20.0),
-                      child: Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Text(
-                              'This page was created by requesting to an external API using Dart\'s FutureBuilder widget.'),
-                        ),
-                      ),
+                      child: Text('Sourced from weatherapi.com'),
                     ),
                   ],
                 ),

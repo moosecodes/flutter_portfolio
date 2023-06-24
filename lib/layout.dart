@@ -20,6 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     Widget page;
+    var theme = Theme.of(context);
 
     switch (selectedIndex) {
       case 0:
@@ -128,6 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     myAppBar(context) {
       return AppBar(
+        backgroundColor: Colors.black,
+        foregroundColor: theme.colorScheme.onPrimary,
         title: AnimatedTextKit(
           animatedTexts: [
             TypewriterAnimatedText(
@@ -191,7 +194,20 @@ class _MyHomePageState extends State<MyHomePage> {
             } else {
               return Row(
                 children: [
-                  SafeArea(child: mainNavigation(constraints)),
+                  SafeArea(
+                      child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              colors: [
+                                Colors.indigo,
+                                Colors.red,
+                              ],
+                            ),
+                            color: theme.colorScheme.primary,
+                          ),
+                          child: mainNavigation(constraints))),
                   Expanded(child: mainArea),
                 ],
               );
