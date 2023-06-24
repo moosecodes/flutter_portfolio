@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/companies.dart';
 import '../components/hero_image.dart';
-import '../components/hero_description.dart';
+import '../components/hero_info.dart';
 
 const double sizedBoxFactor = 20.0;
 
@@ -29,14 +29,5 @@ class AboutPage extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class SocialMedia extends StatelessWidget {
-  const SocialMedia({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

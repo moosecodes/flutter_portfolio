@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import '../pages/about.dart';
-import '../pages/recent_work.dart';
+import 'pages/about.dart';
+import 'pages/recent_work.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
-import '../components/footer.dart';
-import 'weather.dart';
-import 'favorites.dart';
-import 'home.dart';
-import 'news.dart';
+import 'components/footer.dart';
+import 'pages/weather.dart';
+import 'pages/favorites.dart';
+import 'pages/home.dart';
+import 'pages/news.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -125,8 +126,57 @@ class _MyHomePageState extends State<MyHomePage> {
           },
         );
 
+    myAppBar(context) {
+      return AppBar(
+        title: AnimatedTextKit(
+          animatedTexts: [
+            TypewriterAnimatedText(
+              textStyle: TextStyle(
+                fontSize: 20.0,
+              ),
+              speed: Duration(milliseconds: 100),
+              'moosecodes',
+            ),
+          ],
+          isRepeatingAnimation: false,
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.add_alert),
+            tooltip: 'Show Snackbar',
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Welcome to moosecodes.com')));
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.navigate_next),
+            tooltip: 'Go to the next page',
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute<void>(
+                builder: (BuildContext context) {
+                  return Scaffold(
+                    appBar: AppBar(
+                      title: const Text('Contact Me'),
+                    ),
+                    body: const Center(
+                      child: Text(
+                        'Contact page under construction.',
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    ),
+                  );
+                },
+              ));
+            },
+          ),
+        ],
+      );
+    }
+
     return SafeArea(
       child: Scaffold(
+        appBar: myAppBar(context),
         body: LayoutBuilder(
           builder: (context, constraints) {
             if (constraints.maxWidth < 450) {

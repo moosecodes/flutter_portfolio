@@ -4,10 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 Map<String, Map<String, dynamic>> descriptions = {
   'tebra': {
     'image': 'images/tebra.svg',
+    'heading': [
+      'Software Engineer - Tebra',
+      'Healthcare',
+    ],
     'desc': [
-      'Software Engineer (Full Time)',
-      'Tebra (formerly PatientPop)',
-      'Industry: Healthcare - Company Size: Medium',
       '',
       'At Tebra, a pioneer in providing comprehensive solutions for small medical practices, I held a pivotal position as a Software Engineer, focusing primarily on the frontend development for our team. My responsibilities entailed enhancing doctor-patient communications using advanced services such as Twilio and Vonage, facilitating seamless interactions through SMS, email, and video.',
       '',
@@ -20,14 +21,17 @@ Map<String, Map<String, dynamic>> descriptions = {
   },
   'adp': {
     'image': 'images/adp.svg',
+    'heading': [
+      'Full Stack Application Developer - Automatic Data Processing (ADP)',
+      'Human Capital Management',
+    ],
     'desc': [
-      'Full Stack Application Developer (Full Time)',
-      'Automatic Data Processing (ADP)',
-      'Industry: Human Capital Management - Company Size: Large',
       '',
       'In my role as a Full Stack Application Developer at ADP, a comprehensive global provider of cloud-based Human Capital Management (HCM) solutions, I played an instrumental role in the design, development, and implementation of the StandOut application. Employing a robust tech stack that included Vue.js, TypeScript, Laravel, Redis, Docker, and AWS, I created intuitive user interfaces, handled API calls to backend services, and contributed to backend development, eventually becoming proficient in Laravel.',
       '',
-      'One of my notable contributions was the creation of a component library that interacted with our backend Laravel services, providing a foundation for more efficient and standardized application development. Additionally, I worked on two significant StandOut features: the "Weekly Check-In" and the "Engagement Pulse". These tools facilitated one-on-one meetings and company-wide surveys, respectively, offering essential insights into team and company morale for ADP\'s workforce of 60,000+.',
+      'One of my notable contributions was the creation of a component library that interacted with our backend Laravel services, providing a foundation for more efficient and standardized application development.',
+      '',
+      'Additionally, I worked on two significant StandOut features: the "Weekly Check-In" and the "Engagement Pulse". These tools facilitated one-on-one meetings and company-wide surveys, respectively, offering essential insights into team and company morale for ADP\'s workforce of 60,000+.',
       '',
       'To further enhance these features, I integrated Charts.js to visualize survey results, providing an intuitive and engaging method for users to comprehend the data. This project gave me the opportunity to master the full Agile process, CI/CD pipelines, unit testing with Vue-test-utils and Jest, Docker, and Redis.',
       'Not only did I cultivate technical skills, but I also assumed a leadership role in our Agile practices, facilitating sprint retrospectives and enhancing team communication. Furthermore, I honed my skills in API design and architectural diagram creation, reaffirming my ability to learn rapidly on the job and deliver high-quality, impactful solutions.'
@@ -35,10 +39,11 @@ Map<String, Map<String, dynamic>> descriptions = {
   },
   'ama': {
     'image': 'images/ama.svg',
+    'heading': [
+      'Full Stack Developer - American Medical Association',
+      'Healthcare',
+    ],
     'desc': [
-      'Full Stack Developer (Full Time)',
-      'American Medical Association (AMA)',
-      'Industry: Healthcare - Company Size: Large',
       '',
       'As a Frontend Developer at the JAMA Network, a division of the American Medical Association, I led the development and implementation of a transformative software suite named Plexus, and later its second version, Cortex.',
       '',
@@ -54,6 +59,8 @@ class CompaniesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
+
     return Column(
       children: [
         Center(
@@ -64,33 +71,52 @@ class CompaniesWidget extends StatelessWidget {
                 style: TextStyle(fontSize: 22),
                 textAlign: TextAlign.center,
               ),
+              SizedBox(
+                height: 40,
+              ),
             ],
           ),
         ),
         for (var org in descriptions.keys)
           Column(
             children: [
-              ClipRRect(
-                child: SizedBox.fromSize(
-                  size: Size.fromRadius(75), // Image radius
-                  child: SvgPicture.asset(
-                    descriptions[org]?['image'],
-                    semanticsLabel: org[1],
-                  ),
-                ),
-              ),
               Card(
+                color: theme.colorScheme.onPrimary,
                 margin: EdgeInsets.all(10),
                 child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.only(top: 40, bottom: 40),
                   child: Column(
                     children: [
-                      for (var description in descriptions[org]?['desc'])
+                      ClipRRect(
+                        child: SizedBox.fromSize(
+                          size: Size.fromHeight(60), // Image radius
+                          child: SvgPicture.asset(
+                            descriptions[org]?['image'],
+                            semanticsLabel: org[1],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      for (var description in descriptions[org]?['heading'])
                         SizedBox(
                           width: 720,
                           child: Text(
                             description,
                             textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'Helvetica',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      for (var description in descriptions[org]?['desc'])
+                        SizedBox(
+                          width: 720,
+                          child: Text(
+                            description,
+                            textAlign: TextAlign.start,
                             style: TextStyle(
                               fontFamily: 'Helvetica',
                             ),
@@ -102,9 +128,6 @@ class CompaniesWidget extends StatelessWidget {
               ),
             ],
           ),
-        SizedBox(
-          height: 40,
-        ),
       ],
     );
   }

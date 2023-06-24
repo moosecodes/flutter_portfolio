@@ -30,42 +30,37 @@ class _WeatherPageState extends State<WeatherPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                AnimatedTextKit(
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      speed: Duration(milliseconds: 150),
-                      textStyle: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                      "${data['current']['temp_f'].truncate().toString()} F °",
-                    ),
-                  ],
-                  isRepeatingAnimation: false,
-                  onTap: () {
-                    print("Tap Event");
-                  },
-                ),
-                Image(
-                  image: NetworkImage(
-                      "https:${data['current']['condition']['icon']}"),
-                ),
-                Text(
-                  data['current']['condition']['text'],
-                  style: TextStyle(
+            Text(
+              'Current',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            Image(
+              image:
+                  NetworkImage("https:${data['current']['condition']['icon']}"),
+            ),
+            AnimatedTextKit(
+              animatedTexts: [
+                TypewriterAnimatedText(
+                  speed: Duration(milliseconds: 150),
+                  textStyle: TextStyle(
+                    fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
-                ),
-                SizedBox(
-                  height: 20,
+                  "${data['current']['temp_f'].truncate().toString()} F °",
                 ),
               ],
+              isRepeatingAnimation: false,
+              onTap: () {
+                print("Tap Event");
+              },
+            ),
+            Text(
+              data['current']['condition']['text'],
+              style: TextStyle(
+                color: Colors.white,
+              ),
             ),
           ],
         ),
@@ -89,11 +84,11 @@ class _WeatherPageState extends State<WeatherPage> {
                   "https:${forecast[i]['day']['condition']['icon']}"),
             ),
             Text(
-              "${forecast[i]['day']['mintemp_f'].truncate().toString()} F",
+              "${forecast[i]['day']['mintemp_f'].truncate().toString()} F °  ",
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
             Text(
-              "${forecast[i]['day']['maxtemp_f'].truncate().toString()} F",
+              "${forecast[i]['day']['maxtemp_f'].truncate().toString()} F °  ",
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
           ],
@@ -121,6 +116,27 @@ class _WeatherPageState extends State<WeatherPage> {
                 currentWeatherWidget(data),
                 for (var i = 0; i < data['forecast']['forecastday'].length; i++)
                   weatherForecastWidget(data, i),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: FlutterLogo(),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Text(
+                              'This page was created by requesting to an external API using Dart\'s FutureBuilder widget.'),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             );
           } else if (snapshot.hasError) {

@@ -32,7 +32,7 @@ Future<http.Response> getNewsCatcherArticles() async {
   String? key = dotenv.env['newscatcherapi_key'];
 
   return await http.get(
-    Uri.parse('https://api.newscatcherapi.com/v2/search?q=Tesla'),
+    Uri.parse('https://api.newscatcherapi.com/v2/search?q=business'),
     // Send authorization headers to the backend.
     headers: {'x-api-key': "$key"},
   );

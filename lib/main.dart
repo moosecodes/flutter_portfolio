@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'pages/layout.dart';
+import 'layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:english_words/english_words.dart';
@@ -27,8 +27,7 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.orbitronTextTheme(),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           cardTheme: CardTheme(
-            surfaceTintColor: Colors.red,
-            elevation: 4,
+            elevation: 2,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),

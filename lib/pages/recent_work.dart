@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
-import '../components/hero_description.dart';
+import '../components/hero_info.dart';
 import '../components/companies.dart';
 import '../components/hero_image.dart';
 
 const double sizedBoxFactor = 20.0;
+
+const links = [
+  'https://www.tebra.com/product-tour/',
+  'https://www.adp.com/what-we-offer/products/standout.aspx',
+  'https://www.ama-assn.org/',
+  'https://jamanetwork.com/',
+  'https://edhub.ama-assn.org/',
+];
 
 class RecentWorkPage extends StatelessWidget {
   final List<Column> infoPanel = <Column>[
@@ -29,23 +37,5 @@ class RecentWorkPage extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class SocialMedia extends StatelessWidget {
-  const SocialMedia({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class HeroImageDescription extends StatelessWidget {
-  const HeroImageDescription({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
