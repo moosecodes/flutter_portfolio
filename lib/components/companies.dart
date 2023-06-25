@@ -63,80 +63,74 @@ class CompaniesWidget extends StatelessWidget {
 
     return Column(
       children: [
-        Center(
-          child: Column(
-            children: [
-              Text(
-                'Discover Organizations I\'ve Worked For',
-                style: TextStyle(fontSize: 22),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 40,
-              ),
-            ],
-          ),
+        Column(
+          children: [
+            Text(
+              'Discover Organizations I\'ve Worked For',
+              style: TextStyle(fontSize: 22),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 40,
+            ),
+          ],
         ),
         for (var org in descriptions.keys)
           Column(
             children: [
-              Card(
-                color: theme.colorScheme.onPrimary,
-                margin: EdgeInsets.all(10),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 40, bottom: 40),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        child: SizedBox.fromSize(
-                          size: Size.fromHeight(60), // Image radius
-                          child: SvgPicture.asset(
-                            descriptions[org]?['image'],
-                            semanticsLabel: org[1],
-                          ),
-                        ),
+              Column(
+                children: [
+                  ClipRRect(
+                    child: SizedBox.fromSize(
+                      size: Size.fromHeight(60), // Image radius
+                      child: SvgPicture.asset(
+                        descriptions[org]?['image'],
+                        semanticsLabel: org[1],
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      for (var description in descriptions[org]?['heading'])
-                        SizedBox(
-                          width: 720,
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: 20,
-                              right: 20,
-                            ),
-                            child: Text(
-                              description,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      for (var description in descriptions[org]?['desc'])
-                        SizedBox(
-                          width: 720,
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: 20,
-                              right: 20,
-                            ),
-                            child: Text(
-                              description,
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                fontFamily: 'Helvetica',
-                              ),
-                            ),
-                          ),
-                        ),
-                    ],
+                    ),
                   ),
-                ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  for (var description in descriptions[org]?['heading'])
+                    SizedBox(
+                      width: 720,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          left: 20,
+                          right: 20,
+                        ),
+                        child: Text(
+                          description,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Helvetica',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  for (var description in descriptions[org]?['desc'])
+                    SizedBox(
+                      width: 720,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          left: 20,
+                          right: 20,
+                        ),
+                        child: Text(
+                          description,
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontFamily: 'Helvetica',
+                          ),
+                        ),
+                      ),
+                    ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                ],
               ),
             ],
           ),

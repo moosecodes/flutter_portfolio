@@ -6,7 +6,7 @@ import '../components/hero_info.dart';
 const double sizedBoxFactor = 20.0;
 
 class AboutPage extends StatelessWidget {
-  final List<Column> infoPanel = <Column>[
+  final List<Column> infoPanel = [
     Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [

@@ -28,71 +28,153 @@ class LanguagesWidget extends StatelessWidget {
     // var appState = context.watch<MyAppState>();
     var theme = Theme.of(context);
 
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [
-            Colors.indigo,
-            Colors.red,
-          ],
+    return ListView(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 40,
+            left: 40,
+            bottom: 20,
+          ),
+          child: Text(
+            'Welcome to moosecodes.com',
+            style: TextStyle(
+              fontSize: 28,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
         ),
-        color: theme.colorScheme.primary,
-      ),
-      child: ListView(
-        children: [
-          SizedBox(
-            height: 40,
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 40,
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 20,
-            ),
-            child: Text(
-              'Languages & Frameworks',
-              style: TextStyle(
-                fontSize: 22,
-                color: theme.colorScheme.onPrimary,
-              ),
+          child: Text(
+            'Binary to Business: Let\'s Code Your Success Story Together.',
+            style: TextStyle(
+              fontFamily: 'Helvetica',
+              color: theme.colorScheme.onPrimary,
             ),
           ),
-          SizedBox(
-            height: 40,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 20,
+            left: 40,
+            bottom: 20,
           ),
-          Wrap(
-            alignment: WrapAlignment.center,
-            spacing: 20,
-            runSpacing: 20,
-            children: [
-              for (var i = 0; i < svgLanguages.length; i++)
-                Card(
-                  child: ClipRRect(
-                    child: SizedBox.fromSize(
-                      size: Size.square(100), // Image radius
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: SvgPicture.asset(svgLanguages[i],
-                            semanticsLabel: 'Language Logo'),
-                      ),
-                    ),
-                  ),
-                ),
+          child: Text(
+            'Powering Transformation with Every Line of Code',
+            style: TextStyle(
+              fontSize: 22,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            bottom: 20,
+            right: 40,
+            left: 40,
+          ),
+          child: Text(
+            'Fueling breakthroughs in healthcare, HR, and medical publishing, I\'m a Full Stack Developer renowned for designing impactful software solutions. With expertise spanning PHP, JavaScript, Angular, Vue.js, Laravel, and more, I\'ve boosted productivity at the American Medical Association, optimized UIs at ADP, and revolutionized patient-doctor communication at Tebra. Discover my track record of growth, excellence, and tech innovation that propels businesses forward. I don\'t just code – I create change.',
+            style: TextStyle(
+              color: theme.colorScheme.onPrimary,
+              fontFamily: 'Helvetica',
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 40,
+            bottom: 20,
+          ),
+          child: Text(
+            'Proficiently Adapting to and Excelling in Industry Standard Technologies',
+            style: TextStyle(
+              fontSize: 22,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 40,
+          ),
+          child: Text(
+            'Empowering your business growth, I proficiently wield a diverse arsenal of technologies, yet always remain open and eager to mastering more.',
+            style: TextStyle(
+              fontFamily: 'Helvetica',
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 40,
+        ),
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 20,
+          runSpacing: 20,
+          children: [
+            for (var i = 0; i < svgLanguages.length; i++)
               Card(
                 child: ClipRRect(
                   child: SizedBox.fromSize(
                     size: Size.square(100), // Image radius
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
-                      child: FlutterLogo(),
+                      child: SvgPicture.asset(svgLanguages[i],
+                          semanticsLabel: 'Language Logo'),
                     ),
                   ),
                 ),
               ),
-            ],
+            Card(
+              child: ClipRRect(
+                child: SizedBox.fromSize(
+                  size: Size.square(100), // Image radius
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: FlutterLogo(),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 40,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 40,
           ),
-        ],
-      ),
+          child: Text(
+            'Award Winner',
+            style: TextStyle(
+              fontSize: 22,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 20,
+            left: 40,
+          ),
+          child: Text(
+            'I was recognized for my contribution to the American Medical Association with an Above and Beyond Award for the creation of JAMA Plexus (and subsequently JAMA Cortex).',
+            style: TextStyle(
+              fontFamily: 'Helvetica',
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 40,
+        ),
+      ],
     );
   }
 }

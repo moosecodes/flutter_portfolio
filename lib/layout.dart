@@ -3,18 +3,17 @@ import 'pages/about.dart';
 import 'pages/recent_work.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-import 'components/footer.dart';
 import 'pages/weather.dart';
 import 'pages/favorites.dart';
 import 'pages/home.dart';
 import 'pages/news.dart';
 
-class MyHomePage extends StatefulWidget {
+class LayoutWidget extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<LayoutWidget> createState() => _LayoutWidgetState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _LayoutWidgetState extends State<LayoutWidget> {
   int selectedIndex = 0;
 
   @override
@@ -143,37 +142,43 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           isRepeatingAnimation: false,
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.add_alert),
-            tooltip: 'Show Snackbar',
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Welcome to moosecodes.com')));
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.navigate_next),
-            tooltip: 'Go to the next page',
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  return Scaffold(
-                    appBar: AppBar(
-                      title: const Text('Contact Me'),
-                    ),
-                    body: const Center(
-                      child: Text(
-                        'Contact page under construction.',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                    ),
-                  );
-                },
-              ));
-            },
-          ),
-        ],
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: const Icon(Icons.add_alert),
+        //     tooltip: 'Show Snackbar',
+        //     onPressed: () {
+        //       ScaffoldMessenger.of(context).showSnackBar(
+        //         const SnackBar(
+        //           content: Text('Welcome to moosecodes.com'),
+        //         ),
+        //       );
+        //     },
+        //   ),
+        //   IconButton(
+        //     icon: const Icon(Icons.navigate_next),
+        //     tooltip: 'Go to the next page',
+        //     onPressed: () {
+        //       Navigator.push(
+        //         context,
+        //         MaterialPageRoute<void>(
+        //           builder: (BuildContext context) {
+        //             return Scaffold(
+        //               appBar: AppBar(
+        //                 title: const Text('Contact Me'),
+        //               ),
+        //               body: const Center(
+        //                 child: Text(
+        //                   'Contact page under construction.',
+        //                   style: TextStyle(fontSize: 24),
+        //                 ),
+        //               ),
+        //             );
+        //           },
+        //         ),
+        //       );
+        //     },
+        //   ),
+        // ],
       );
     }
 
@@ -187,28 +192,23 @@ class _MyHomePageState extends State<MyHomePage> {
               // on narrow screens.
               return Column(
                 children: [
-                  Expanded(child: mainArea),
-                  SafeArea(child: mobileNavigation()),
+                  Expanded(
+                    child: mainArea,
+                  ),
+                  SafeArea(
+                    child: mobileNavigation(),
+                  ),
                 ],
               );
             } else {
               return Row(
                 children: [
                   SafeArea(
-                      child: Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft,
-                              colors: [
-                                Colors.indigo,
-                                Colors.red,
-                              ],
-                            ),
-                            color: theme.colorScheme.primary,
-                          ),
-                          child: mainNavigation(constraints))),
-                  Expanded(child: mainArea),
+                    child: mainNavigation(constraints),
+                  ),
+                  Expanded(
+                    child: mainArea,
+                  ),
                 ],
               );
             }

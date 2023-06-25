@@ -94,6 +94,21 @@ class HeroDescription extends StatelessWidget {
           ],
         ),
         SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            OutlinedButton(
+              child: const Text('Download Resume'),
+              onPressed: () async {
+                await _launchUrl(Uri.parse(
+                    'https://docs.google.com/document/d/1_239nVfYuMPexluLEx3RYXSnhbbuATOXoMVTZm4vm9g/export?format=pdf'));
+              },
+            ),
+          ],
+        ),
+        SizedBox(
           height: 40,
         ),
       ],

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       create: (context) => MyAppState(),
       child: MaterialApp(
         title: 'Mustafa Ishaq | moosecodes.com',
-        home: MyHomePage(),
+        home: LayoutWidget(),
         theme: ThemeData(
           useMaterial3: true,
           textTheme: GoogleFonts.orbitronTextTheme(),
