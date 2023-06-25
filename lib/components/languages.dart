@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 const svgLanguages = [
   'images/javascript.svg',
@@ -33,13 +34,33 @@ class LanguagesWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(
             left: 40,
+            top: 10,
           ),
           child: Text(
-            'Binary to Business: Let\'s Code Your Success Story Together',
+            'Binary to Business',
             style: TextStyle(
               fontSize: 28,
               color: theme.colorScheme.onPrimary,
             ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 40,
+            top: 5,
+          ),
+          child: AnimatedTextKit(
+            animatedTexts: [
+              TypewriterAnimatedText(
+                textStyle: TextStyle(
+                  fontSize: 20.0,
+                  color: theme.colorScheme.onPrimary,
+                ),
+                speed: Duration(milliseconds: 100),
+                'Let\'s Code Your Success Story Together',
+              ),
+            ],
+            isRepeatingAnimation: false,
           ),
         ),
         Padding(
@@ -51,7 +72,7 @@ class LanguagesWidget extends StatelessWidget {
           child: Text(
             'Powering Transformation with Every Line of Code',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 24,
               color: theme.colorScheme.onPrimary,
             ),
           ),
@@ -73,14 +94,14 @@ class LanguagesWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(
-            top: 40,
+            top: 20,
             left: 40,
             bottom: 20,
           ),
           child: Text(
             'Proficiently Adapting to and Excelling in Industry Standard Technologies',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 24,
               color: theme.colorScheme.onPrimary,
             ),
           ),
@@ -142,7 +163,7 @@ class LanguagesWidget extends StatelessWidget {
           child: Text(
             'Award Winner',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 24,
               color: theme.colorScheme.onPrimary,
             ),
           ),
