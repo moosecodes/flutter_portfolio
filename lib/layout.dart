@@ -58,17 +58,17 @@ class _LayoutWidgetState extends State<LayoutWidget> {
             BottomNavigationBarItem(
               icon: Icon(Icons.flip),
               label: 'About Me',
-              backgroundColor: Colors.indigo,
+              backgroundColor: Colors.black,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.work),
               label: 'Recent Work',
-              backgroundColor: Colors.amber,
+              backgroundColor: Colors.black,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.cloud),
               label: 'Weather',
-              backgroundColor: Colors.amber,
+              backgroundColor: Colors.black,
             ),
             // BottomNavigationBarItem(
             //   icon: Icon(Icons.newspaper),

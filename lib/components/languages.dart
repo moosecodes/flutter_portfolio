@@ -32,12 +32,10 @@ class LanguagesWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(
-            top: 40,
             left: 40,
-            bottom: 20,
           ),
           child: Text(
-            'Welcome to moosecodes.com',
+            'Binary to Business: Let\'s Code Your Success Story Together',
             style: TextStyle(
               fontSize: 28,
               color: theme.colorScheme.onPrimary,
@@ -46,19 +44,7 @@ class LanguagesWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(
-            left: 40,
-          ),
-          child: Text(
-            'Binary to Business: Let\'s Code Your Success Story Together.',
-            style: TextStyle(
-              fontFamily: 'Helvetica',
-              color: theme.colorScheme.onPrimary,
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 20,
+            top: 40,
             left: 40,
             bottom: 20,
           ),
@@ -80,12 +66,14 @@ class LanguagesWidget extends StatelessWidget {
             'Fueling breakthroughs in healthcare, HR, and medical publishing, I\'m a Full Stack Developer renowned for designing impactful software solutions. With expertise spanning PHP, JavaScript, Angular, Vue.js, Laravel, and more, I\'ve boosted productivity at the American Medical Association, optimized UIs at ADP, and revolutionized patient-doctor communication at Tebra. Discover my track record of growth, excellence, and tech innovation that propels businesses forward. I don\'t just code – I create change.',
             style: TextStyle(
               color: theme.colorScheme.onPrimary,
+              fontSize: 16,
               fontFamily: 'Helvetica',
             ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(
+            top: 40,
             left: 40,
             bottom: 20,
           ),
@@ -105,6 +93,7 @@ class LanguagesWidget extends StatelessWidget {
             'Empowering your business growth, I proficiently wield a diverse arsenal of technologies, yet always remain open and eager to mastering more.',
             style: TextStyle(
               fontFamily: 'Helvetica',
+              fontSize: 16,
               color: theme.colorScheme.onPrimary,
             ),
           ),
@@ -167,6 +156,7 @@ class LanguagesWidget extends StatelessWidget {
             'I was recognized for my contribution to the American Medical Association with an Above and Beyond Award for the creation of JAMA Plexus (and subsequently JAMA Cortex).',
             style: TextStyle(
               fontFamily: 'Helvetica',
+              fontSize: 16,
               color: theme.colorScheme.onPrimary,
             ),
           ),

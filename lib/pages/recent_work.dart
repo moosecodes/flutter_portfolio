@@ -59,7 +59,7 @@ var links = [
         '(Deprecated) iPhone Application powered by JAMA Plexus and JAMA Cortex',
   },
   {
-    'org': 'American Medical Association',
+    'org': 'TravelClick',
     'item': 'The Dream Hotels',
     'url': 'https://dreamhotels.com/',
     'info': 'Built as Lead Developer at TravelClick (now Amadeus)',
