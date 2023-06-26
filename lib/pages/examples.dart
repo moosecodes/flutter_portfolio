@@ -44,7 +44,7 @@ class ExamplesPage extends StatelessWidget {
               ),
               ClipRRect(
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     children: [
                       SizedBox(
@@ -62,6 +62,15 @@ class ExamplesPage extends StatelessWidget {
                         height: 20,
                       ),
                       Text(
+                        'The Purrrfect Marketplace',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: theme.colorScheme.onPrimary,
+                          fontSize: 18,
+                          fontFamily: 'Helvetica',
+                        ),
+                      ),
+                      Text(
                         'React application that uses CatAPI.com to display information about cats.  Has a shopping cart feature that persists with local storage.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -73,39 +82,81 @@ class ExamplesPage extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.resolveWith<Color?>(
-                            (Set<MaterialState> states) {
-                              if (states.contains(MaterialState.pressed)) {
-                                return theme.colorScheme.primary;
-                              }
-                              return Colors
-                                  .white; // Use the component's default.
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              foregroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .white; // Use the component's default.
+                                },
+                              ),
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .black; // Use the component's default.
+                                },
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Text(
+                                'Visit',
+                              ),
+                            ),
+                            onPressed: () async {
+                              await _launchUrl(Uri.parse(
+                                  'https://www.moosecodes.com/react'));
                             },
                           ),
-                          backgroundColor:
-                              MaterialStateProperty.resolveWith<Color?>(
-                            (Set<MaterialState> states) {
-                              if (states.contains(MaterialState.pressed)) {
-                                return theme.colorScheme.primary;
-                              }
-                              return Colors
-                                  .black; // Use the component's default.
+                          SizedBox(
+                            width: 40,
+                          ),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              foregroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .white; // Use the component's default.
+                                },
+                              ),
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .black; // Use the component's default.
+                                },
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Text(
+                                'Github',
+                              ),
+                            ),
+                            onPressed: () async {
+                              await _launchUrl(Uri.parse(
+                                  'https://www.github.com/moosecodes/purrr-market'));
                             },
                           ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: Text(
-                            'Visit The Purrrfect Marketplace',
-                          ),
-                        ),
-                        onPressed: () async {
-                          await _launchUrl(
-                              Uri.parse('https://www.moosecodes.com/react'));
-                        },
+                        ],
                       ),
                     ],
                   ),
@@ -116,7 +167,7 @@ class ExamplesPage extends StatelessWidget {
               ),
               ClipRRect(
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     children: [
                       SizedBox(
@@ -134,6 +185,15 @@ class ExamplesPage extends StatelessWidget {
                         height: 20,
                       ),
                       Text(
+                        'Crypta',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: theme.colorScheme.onPrimary,
+                          fontSize: 18,
+                          fontFamily: 'Helvetica',
+                        ),
+                      ),
+                      Text(
                         'Vue app that uses a custom Laravel API to utilize PHP\'s encryption methods to hash messages for the user using selected cipher.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -145,39 +205,81 @@ class ExamplesPage extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.resolveWith<Color?>(
-                            (Set<MaterialState> states) {
-                              if (states.contains(MaterialState.pressed)) {
-                                return theme.colorScheme.primary;
-                              }
-                              return Colors
-                                  .white; // Use the component's default.
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              foregroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .white; // Use the component's default.
+                                },
+                              ),
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .black; // Use the component's default.
+                                },
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Text(
+                                'Visit',
+                              ),
+                            ),
+                            onPressed: () async {
+                              await _launchUrl(
+                                  Uri.parse('https://www.moosecodes.com/vue'));
                             },
                           ),
-                          backgroundColor:
-                              MaterialStateProperty.resolveWith<Color?>(
-                            (Set<MaterialState> states) {
-                              if (states.contains(MaterialState.pressed)) {
-                                return theme.colorScheme.primary;
-                              }
-                              return Colors
-                                  .black; // Use the component's default.
+                          SizedBox(
+                            width: 40,
+                          ),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              foregroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .white; // Use the component's default.
+                                },
+                              ),
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .black; // Use the component's default.
+                                },
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Text(
+                                'Github',
+                              ),
+                            ),
+                            onPressed: () async {
+                              await _launchUrl(Uri.parse(
+                                  'https://www.github.com/moosecodes/crypta-frontend'));
                             },
                           ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: Text(
-                            'Visit Crypta',
-                          ),
-                        ),
-                        onPressed: () async {
-                          await _launchUrl(
-                              Uri.parse('https://www.moosecodes.com/vue'));
-                        },
+                        ],
                       ),
                     ],
                   ),
@@ -188,7 +290,7 @@ class ExamplesPage extends StatelessWidget {
               ),
               ClipRRect(
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     children: [
                       SizedBox.fromSize(
@@ -202,6 +304,15 @@ class ExamplesPage extends StatelessWidget {
                         height: 20,
                       ),
                       Text(
+                        'moosecodes.com',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: theme.colorScheme.onPrimary,
+                          fontSize: 18,
+                          fontFamily: 'Helvetica',
+                        ),
+                      ),
+                      Text(
                         'This web site was made with Flutter!',
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -213,39 +324,81 @@ class ExamplesPage extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.resolveWith<Color?>(
-                            (Set<MaterialState> states) {
-                              if (states.contains(MaterialState.pressed)) {
-                                return theme.colorScheme.primary;
-                              }
-                              return Colors
-                                  .white; // Use the component's default.
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              foregroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .white; // Use the component's default.
+                                },
+                              ),
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .black; // Use the component's default.
+                                },
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Text(
+                                'Visit',
+                              ),
+                            ),
+                            onPressed: () async {
+                              await _launchUrl(
+                                  Uri.parse('https://www.moosecodes.com/'));
                             },
                           ),
-                          backgroundColor:
-                              MaterialStateProperty.resolveWith<Color?>(
-                            (Set<MaterialState> states) {
-                              if (states.contains(MaterialState.pressed)) {
-                                return theme.colorScheme.primary;
-                              }
-                              return Colors
-                                  .black; // Use the component's default.
+                          SizedBox(
+                            width: 40,
+                          ),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              foregroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .white; // Use the component's default.
+                                },
+                              ),
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return theme.colorScheme.primary;
+                                  }
+                                  return Colors
+                                      .black; // Use the component's default.
+                                },
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Text(
+                                'Github',
+                              ),
+                            ),
+                            onPressed: () async {
+                              await _launchUrl(Uri.parse(
+                                  'https://www.github.com/moosecodes/flutter_portfolio'));
                             },
                           ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: Text(
-                            'Visit moosecodes.com',
-                          ),
-                        ),
-                        onPressed: () async {
-                          await _launchUrl(
-                              Uri.parse('https://www.moosecodes.com/'));
-                        },
+                        ],
                       ),
                     ],
                   ),

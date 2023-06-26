@@ -67,7 +67,6 @@ class LanguagesWidget extends StatelessWidget {
           padding: const EdgeInsets.only(
             top: 40,
             left: 40,
-            bottom: 20,
           ),
           child: Text(
             'Powering Transformation with Every Line of Code',
@@ -92,11 +91,38 @@ class LanguagesWidget extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(
+          height: 20,
+        ),
         Padding(
           padding: const EdgeInsets.only(
-            top: 20,
             left: 40,
-            bottom: 20,
+          ),
+          child: Text(
+            'Award Winner',
+            style: TextStyle(
+              fontSize: 24,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 40,
+          ),
+          child: Text(
+            'I was recognized for my contribution to the American Medical Association with an Above and Beyond Award for the creation of JAMA Plexus (and subsequently JAMA Cortex).',
+            style: TextStyle(
+              fontFamily: 'Helvetica',
+              fontSize: 16,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 40,
+            left: 40,
           ),
           child: Text(
             'Proficiently Adapting to and Excelling in Industry Standard Technologies',
@@ -152,35 +178,6 @@ class LanguagesWidget extends StatelessWidget {
               ),
             ),
           ],
-        ),
-        SizedBox(
-          height: 40,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 40,
-          ),
-          child: Text(
-            'Award Winner',
-            style: TextStyle(
-              fontSize: 24,
-              color: theme.colorScheme.onPrimary,
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 20,
-            left: 40,
-          ),
-          child: Text(
-            'I was recognized for my contribution to the American Medical Association with an Above and Beyond Award for the creation of JAMA Plexus (and subsequently JAMA Cortex).',
-            style: TextStyle(
-              fontFamily: 'Helvetica',
-              fontSize: 16,
-              color: theme.colorScheme.onPrimary,
-            ),
-          ),
         ),
         SizedBox(
           height: 40,
