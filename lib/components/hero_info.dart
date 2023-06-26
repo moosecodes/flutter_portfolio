@@ -16,7 +16,7 @@ const colorizeTextStyle = TextStyle(
 );
 const colorizeTextStyleSmall = TextStyle(
   fontSize: 20.0,
-  fontWeight: FontWeight.bold,
+  color: Colors.grey,
 );
 Future<void> _launchUrl(url) async {
   if (!await launchUrl(url)) {
@@ -67,29 +67,14 @@ class HeroDescription extends StatelessWidget {
               'React.js',
             ),
             TypewriterAnimatedText(
-              textStyle: colorizeTextStyleSmall,
               speed: Duration(milliseconds: 15),
-              'Docker',
+              textStyle: colorizeTextStyleSmall,
+              'Mobile Apps',
             ),
             TypewriterAnimatedText(
               textStyle: colorizeTextStyleSmall,
               speed: Duration(milliseconds: 15),
-              'Security',
-            ),
-            TypewriterAnimatedText(
-              textStyle: colorizeTextStyleSmall,
-              speed: Duration(milliseconds: 15),
-              'Front End UI/UX',
-            ),
-            TypewriterAnimatedText(
-              textStyle: colorizeTextStyleSmall,
-              speed: Duration(milliseconds: 15),
-              'Back End Architecture',
-            ),
-            TypewriterAnimatedText(
-              speed: Duration(milliseconds: 15),
-              textStyle: colorizeTextStyleSmall,
-              'Mobile Applications',
+              'Self Starting',
             ),
             ColorizeAnimatedText(
               'Software Engineer',
