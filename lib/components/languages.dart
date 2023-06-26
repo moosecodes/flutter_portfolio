@@ -36,12 +36,18 @@ class LanguagesWidget extends StatelessWidget {
             left: 40,
             top: 10,
           ),
-          child: Text(
-            'Binary to Business',
-            style: TextStyle(
-              fontSize: 28,
-              color: theme.colorScheme.onPrimary,
-            ),
+          child: AnimatedTextKit(
+            animatedTexts: [
+              TypewriterAnimatedText(
+                textStyle: TextStyle(
+                  fontSize: 32.0,
+                  color: theme.colorScheme.onPrimary,
+                ),
+                speed: Duration(milliseconds: 100),
+                'Binary to Business',
+              ),
+            ],
+            isRepeatingAnimation: false,
           ),
         ),
         Padding(
@@ -99,6 +105,58 @@ class LanguagesWidget extends StatelessWidget {
             left: 40,
           ),
           child: Text(
+            'Industry Leading Experience ',
+            style: TextStyle(
+              fontSize: 24,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 40,
+            bottom: 40,
+          ),
+          child: Text(
+            'Moose\'s professional journey traverses through the corridors of premier industry leaders.',
+            style: TextStyle(
+              fontFamily: 'Helvetica',
+              fontSize: 16,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 40,
+          ),
+          child: Text(
+            'Design Aware',
+            style: TextStyle(
+              fontSize: 24,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 40,
+            bottom: 40,
+          ),
+          child: Text(
+            'Consciously Crafting with Design Intelligence: The Significance of Design Sensibility Cannot Be Overstated.',
+            style: TextStyle(
+              fontFamily: 'Helvetica',
+              fontSize: 16,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 40,
+          ),
+          child: Text(
             'Award Winner',
             style: TextStyle(
               fontSize: 24,
@@ -125,7 +183,7 @@ class LanguagesWidget extends StatelessWidget {
             left: 40,
           ),
           child: Text(
-            'Proficiently Adapting to and Excelling in Industry Standard Technologies',
+            'Expertly Handling Key Technologies',
             style: TextStyle(
               fontSize: 24,
               color: theme.colorScheme.onPrimary,

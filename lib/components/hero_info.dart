@@ -12,9 +12,11 @@ const colorizeColors = [
 ];
 const colorizeTextStyle = TextStyle(
   fontSize: 28.0,
+  fontWeight: FontWeight.bold,
 );
 const colorizeTextStyleSmall = TextStyle(
   fontSize: 20.0,
+  fontWeight: FontWeight.bold,
 );
 Future<void> _launchUrl(url) async {
   if (!await launchUrl(url)) {
@@ -27,8 +29,6 @@ class HeroDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var theme = Theme.of(context);
-
     return Column(
       children: [
         SizedBox(
@@ -46,6 +46,36 @@ class HeroDescription extends StatelessWidget {
         ),
         AnimatedTextKit(
           animatedTexts: [
+            TypewriterAnimatedText(
+              textStyle: colorizeTextStyleSmall,
+              speed: Duration(milliseconds: 15),
+              'JavaScript',
+            ),
+            TypewriterAnimatedText(
+              textStyle: colorizeTextStyleSmall,
+              speed: Duration(milliseconds: 15),
+              'PHP',
+            ),
+            TypewriterAnimatedText(
+              textStyle: colorizeTextStyleSmall,
+              speed: Duration(milliseconds: 15),
+              'Vue.js',
+            ),
+            TypewriterAnimatedText(
+              textStyle: colorizeTextStyleSmall,
+              speed: Duration(milliseconds: 15),
+              'React.js',
+            ),
+            TypewriterAnimatedText(
+              textStyle: colorizeTextStyleSmall,
+              speed: Duration(milliseconds: 15),
+              'Docker',
+            ),
+            TypewriterAnimatedText(
+              textStyle: colorizeTextStyleSmall,
+              speed: Duration(milliseconds: 15),
+              'Security',
+            ),
             TypewriterAnimatedText(
               textStyle: colorizeTextStyleSmall,
               speed: Duration(milliseconds: 15),

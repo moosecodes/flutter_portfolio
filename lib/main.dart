@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Mustafa Ishaq | moosecodes.com',
+        title: 'Mustafa Ishaq - Code Forever',
         home: LayoutWidget(),
         theme: ThemeData(
           useMaterial3: true,

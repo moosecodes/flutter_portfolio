@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/about.dart';
 import 'pages/recent_work.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 
 import 'pages/weather.dart';
 import 'pages/examples.dart';
@@ -53,7 +52,7 @@ class _LayoutWidgetState extends State<LayoutWidget> {
               backgroundColor: Colors.black,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.flip),
+              icon: Icon(Icons.person),
               label: 'About Me',
               backgroundColor: Colors.black,
             ),
@@ -100,7 +99,7 @@ class _LayoutWidgetState extends State<LayoutWidget> {
               label: Text('Home'),
             ),
             NavigationRailDestination(
-              icon: Icon(Icons.flip),
+              icon: Icon(Icons.person),
               label: Text('About Me'),
             ),
             NavigationRailDestination(
@@ -137,7 +136,7 @@ class _LayoutWidgetState extends State<LayoutWidget> {
         backgroundColor: Colors.black,
         foregroundColor: theme.colorScheme.onPrimary,
         title: Text(
-          'moosecodes',
+          'moosecodes | code forever',
           style: TextStyle(
             letterSpacing: 3,
             fontSize: 20.0,

@@ -39,7 +39,20 @@ class ExamplesPage extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: theme.colorScheme.onPrimary,
+                  fontWeight: FontWeight.bold,
                   fontSize: 24,
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Text(
+                'Discover a showcase of my latest creations, representative demonstrations of my versatile coding capabilities across diverse languages and frameworks.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: theme.colorScheme.onPrimary,
+                  fontSize: 18,
+                  fontFamily: 'Helvetica',
                 ),
               ),
               ClipRRect(
@@ -66,9 +79,13 @@ class ExamplesPage extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: theme.colorScheme.onPrimary,
-                          fontSize: 18,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
                           fontFamily: 'Helvetica',
                         ),
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Text(
                         'React application that uses CatAPI.com to display information about cats.  Has a shopping cart feature that persists with local storage.',
@@ -189,9 +206,13 @@ class ExamplesPage extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: theme.colorScheme.onPrimary,
-                          fontSize: 18,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
                           fontFamily: 'Helvetica',
                         ),
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Text(
                         'Vue app that uses a custom Laravel API to utilize PHP\'s encryption methods to hash messages for the user using selected cipher.',
@@ -308,9 +329,13 @@ class ExamplesPage extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: theme.colorScheme.onPrimary,
-                          fontSize: 18,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
                           fontFamily: 'Helvetica',
                         ),
+                      ),
+                      SizedBox(
+                        height: 20,
                       ),
                       Text(
                         'This web site was made with Flutter!',

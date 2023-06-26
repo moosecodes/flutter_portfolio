@@ -59,15 +59,16 @@ class CompaniesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-
     return Column(
       children: [
         Column(
           children: [
             Text(
               'Discover Organizations I\'ve Worked For',
-              style: TextStyle(fontSize: 22),
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             SizedBox(
