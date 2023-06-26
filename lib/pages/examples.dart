@@ -120,7 +120,7 @@ class ExamplesPage extends StatelessWidget {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 40,
+                        height: 20,
                       ),
                       SizedBox.fromSize(
                         size: Size.square(100), // Image radius
@@ -134,7 +134,7 @@ class ExamplesPage extends StatelessWidget {
                         height: 20,
                       ),
                       Text(
-                        'React application that uses CatAPI.com to display information about cats.  Has a shopping cart feature that persists with local storage.',
+                        'Vue app that uses a custom Laravel API to utilize PHP\'s encryption methods to hash messages for the user using selected cipher.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: theme.colorScheme.onPrimary,
@@ -171,12 +171,12 @@ class ExamplesPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(20),
                           child: Text(
-                            'Visit The Purrrfect Marketplace',
+                            'Visit Crypta',
                           ),
                         ),
                         onPressed: () async {
                           await _launchUrl(
-                              Uri.parse('https://www.moosecodes.com/react'));
+                              Uri.parse('https://www.moosecodes.com/vue'));
                         },
                       ),
                     ],
