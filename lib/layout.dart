@@ -4,9 +4,8 @@ import 'pages/recent_work.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 import 'pages/weather.dart';
-import 'pages/favorites.dart';
+import 'pages/examples.dart';
 import 'pages/home.dart';
-import 'pages/news.dart';
 
 class LayoutWidget extends StatefulWidget {
   @override
@@ -35,10 +34,8 @@ class _LayoutWidgetState extends State<LayoutWidget> {
         page = WeatherPage();
         break;
       case 4:
-        page = NewsPage();
+        page = ExamplesPage();
         break;
-      case 5:
-        page = FavoritesPage();
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -68,6 +65,11 @@ class _LayoutWidgetState extends State<LayoutWidget> {
             BottomNavigationBarItem(
               icon: Icon(Icons.cloud),
               label: 'Weather',
+              backgroundColor: Colors.black,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.pages),
+              label: 'Demos',
               backgroundColor: Colors.black,
             ),
             // BottomNavigationBarItem(
@@ -109,6 +111,10 @@ class _LayoutWidgetState extends State<LayoutWidget> {
               icon: Icon(Icons.cloud),
               label: Text('Weather'),
             ),
+            NavigationRailDestination(
+              icon: Icon(Icons.pages),
+              label: Text('Demos'),
+            ),
             // NavigationRailDestination(
             //   icon: Icon(Icons.newspaper),
             //   label: Text('News'),
@@ -130,17 +136,12 @@ class _LayoutWidgetState extends State<LayoutWidget> {
       return AppBar(
         backgroundColor: Colors.black,
         foregroundColor: theme.colorScheme.onPrimary,
-        title: AnimatedTextKit(
-          animatedTexts: [
-            TypewriterAnimatedText(
-              textStyle: TextStyle(
-                fontSize: 20.0,
-              ),
-              speed: Duration(milliseconds: 100),
-              'moosecodes',
-            ),
-          ],
-          isRepeatingAnimation: false,
+        title: Text(
+          'moosecodes',
+          style: TextStyle(
+            letterSpacing: 3,
+            fontSize: 20.0,
+          ),
         ),
         // actions: <Widget>[
         //   IconButton(

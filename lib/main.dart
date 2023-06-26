@@ -24,10 +24,9 @@ class MyApp extends StatelessWidget {
         home: LayoutWidget(),
         theme: ThemeData(
           useMaterial3: true,
-          textTheme: GoogleFonts.orbitronTextTheme(),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          textTheme: GoogleFonts.orbitronTextTheme(),
           cardTheme: CardTheme(
-            elevation: 2,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),
