@@ -136,7 +136,7 @@ class _LayoutWidgetState extends State<LayoutWidget> {
         backgroundColor: Colors.black,
         foregroundColor: theme.colorScheme.onPrimary,
         title: Text(
-          'moosecodes | code forever',
+          'moosecodes | forever',
           style: TextStyle(
             letterSpacing: 3,
             fontSize: 20.0,

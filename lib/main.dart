@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'layout.dart';
+import 'package:url_strategy/url_strategy.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:english_words/english_words.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future main() async {
   await dotenv.load(fileName: '.env');
+  setPathUrlStrategy();
   runApp(MyApp());
 }
 
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Moosecodes - code forever',
+        title: 'Moosecodes - Forever',
         home: LayoutWidget(),
         theme: ThemeData(
           useMaterial3: true,

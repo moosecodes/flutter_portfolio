@@ -91,7 +91,7 @@ class HeroDescription extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(
+            ElevatedButton(
               child: const Text('LinkedIn'),
               onPressed: () async {
                 await _launchUrl(
@@ -101,7 +101,7 @@ class HeroDescription extends StatelessWidget {
             SizedBox(
               width: 40,
             ),
-            TextButton(
+            ElevatedButton(
               child: const Text('GitHub'),
               onPressed: () async {
                 await _launchUrl(Uri.parse('https://github.com/moosecodes'));
@@ -115,7 +115,7 @@ class HeroDescription extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            OutlinedButton(
+            ElevatedButton(
               child: const Text('Download Resume'),
               onPressed: () async {
                 await _launchUrl(Uri.parse(

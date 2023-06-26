@@ -38,7 +38,7 @@ class LanguagesWidget extends StatelessWidget {
           ),
           child: AnimatedTextKit(
             animatedTexts: [
-              TypewriterAnimatedText(
+              TyperAnimatedText(
                 textStyle: TextStyle(
                   fontSize: 32.0,
                   color: theme.colorScheme.onPrimary,
@@ -74,7 +74,7 @@ class LanguagesWidget extends StatelessWidget {
             top: 40,
             left: 40,
           ),
-          child: Text(
+          child: SelectableText(
             'Powering Transformation with Every Line of Code',
             style: TextStyle(
               fontSize: 24,
@@ -84,11 +84,12 @@ class LanguagesWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(
+            top: 5,
             bottom: 20,
             right: 40,
             left: 40,
           ),
-          child: Text(
+          child: SelectableText(
             'Fueling breakthroughs in healthcare, HR, and medical publishing, I\'m a Full Stack Developer renowned for designing impactful software solutions. With expertise spanning PHP, JavaScript, Angular, Vue.js, Laravel, and more, I\'ve boosted productivity at the American Medical Association, optimized UIs at ADP, and revolutionized patient-doctor communication at Tebra. Discover my track record of growth, excellence, and tech innovation that propels businesses forward. I don\'t just code – I create change.',
             style: TextStyle(
               color: theme.colorScheme.onPrimary,
@@ -104,7 +105,7 @@ class LanguagesWidget extends StatelessWidget {
           padding: const EdgeInsets.only(
             left: 40,
           ),
-          child: Text(
+          child: SelectableText(
             'Industry Leading Experience ',
             style: TextStyle(
               fontSize: 24,
@@ -114,10 +115,12 @@ class LanguagesWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(
+            top: 5,
+            bottom: 20,
+            right: 40,
             left: 40,
-            bottom: 40,
           ),
-          child: Text(
+          child: SelectableText(
             'Moose\'s professional journey traverses through the corridors of premier industry leaders.',
             style: TextStyle(
               fontFamily: 'Helvetica',
@@ -130,7 +133,7 @@ class LanguagesWidget extends StatelessWidget {
           padding: const EdgeInsets.only(
             left: 40,
           ),
-          child: Text(
+          child: SelectableText(
             'Crafting Your Ambitions Into Digital Reality',
             style: TextStyle(
               fontSize: 24,
@@ -140,10 +143,12 @@ class LanguagesWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(
+            top: 5,
+            bottom: 20,
+            right: 40,
             left: 40,
-            bottom: 40,
           ),
-          child: Text(
+          child: SelectableText(
             'Consciously Crafting with Design Intelligence: The Significance of Design Sensibility Cannot Be Overstated.',
             style: TextStyle(
               fontFamily: 'Helvetica',
@@ -156,7 +161,7 @@ class LanguagesWidget extends StatelessWidget {
           padding: const EdgeInsets.only(
             left: 40,
           ),
-          child: Text(
+          child: SelectableText(
             'Award Winner',
             style: TextStyle(
               fontSize: 24,
@@ -166,9 +171,12 @@ class LanguagesWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(
+            top: 5,
+            bottom: 20,
+            right: 40,
             left: 40,
           ),
-          child: Text(
+          child: SelectableText(
             'I was recognized for my contribution to the American Medical Association with an Above and Beyond Award for the creation of JAMA Plexus (and subsequently JAMA Cortex).',
             style: TextStyle(
               fontFamily: 'Helvetica',
@@ -182,7 +190,7 @@ class LanguagesWidget extends StatelessWidget {
             top: 40,
             left: 40,
           ),
-          child: Text(
+          child: SelectableText(
             'Expertly Handling Key Technologies',
             style: TextStyle(
               fontSize: 24,
@@ -192,9 +200,12 @@ class LanguagesWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(
+            top: 5,
+            bottom: 20,
+            right: 40,
             left: 40,
           ),
-          child: Text(
+          child: SelectableText(
             'Empowering your business growth, I proficiently wield a diverse arsenal of technologies, yet always remain open and eager to mastering more.',
             style: TextStyle(
               fontFamily: 'Helvetica',
