@@ -131,7 +131,7 @@ class LanguagesWidget extends StatelessWidget {
             left: 40,
           ),
           child: Text(
-            'Design Aware',
+            'Crafting Your Ambitions Into Digital Reality',
             style: TextStyle(
               fontSize: 24,
               color: theme.colorScheme.onPrimary,

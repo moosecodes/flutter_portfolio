@@ -16,6 +16,7 @@ const colorizeTextStyle = TextStyle(
 );
 const colorizeTextStyleSmall = TextStyle(
   fontSize: 20.0,
+  fontWeight: FontWeight.bold,
   color: Colors.grey,
 );
 Future<void> _launchUrl(url) async {
