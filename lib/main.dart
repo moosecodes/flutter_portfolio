@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Moosecodes - Forever',
+        title: 'Moosecodes',
         home: LayoutWidget(),
         theme: ThemeData(
           useMaterial3: true,

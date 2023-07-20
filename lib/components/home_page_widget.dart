@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-const svgLanguages = [
-  'images/javascript.svg',
+const svgSkillset = [
   'images/vue.svg',
   'images/react.svg',
-  'images/php.svg',
-  'images/laravel.svg',
+  'images/javascript.svg',
   'images/html5.svg',
   'images/css3.svg',
   'images/sass.svg',
+  'images/php.svg',
+  'images/laravel.svg',
   'images/typescript.svg',
   'images/redis.svg',
   'images/nodejs.svg',
@@ -23,7 +23,7 @@ const svgLanguages = [
   'images/dart.svg',
 ];
 
-class LanguagesWidget extends StatelessWidget {
+class HomePageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // var appState = context.watch<MyAppState>();
@@ -40,7 +40,7 @@ class LanguagesWidget extends StatelessWidget {
             animatedTexts: [
               TyperAnimatedText(
                 textStyle: TextStyle(
-                  fontSize: 32.0,
+                  fontSize: 24,
                   color: theme.colorScheme.onPrimary,
                 ),
                 speed: Duration(milliseconds: 100),
@@ -59,7 +59,7 @@ class LanguagesWidget extends StatelessWidget {
             animatedTexts: [
               TypewriterAnimatedText(
                 textStyle: TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 16,
                   color: theme.colorScheme.onPrimary,
                 ),
                 speed: Duration(milliseconds: 100),
@@ -98,11 +98,9 @@ class LanguagesWidget extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          height: 20,
-        ),
         Padding(
           padding: const EdgeInsets.only(
+            top: 20,
             left: 40,
           ),
           child: SelectableText(
@@ -131,6 +129,7 @@ class LanguagesWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(
+            top: 20,
             left: 40,
           ),
           child: SelectableText(
@@ -160,6 +159,7 @@ class LanguagesWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(
             left: 40,
+            top: 20,
           ),
           child: SelectableText(
             'Award Winner',
@@ -177,7 +177,7 @@ class LanguagesWidget extends StatelessWidget {
             left: 40,
           ),
           child: SelectableText(
-            'I was recognized for my contribution to the American Medical Association with an Above and Beyond Award for the creation of JAMA Plexus (and subsequently JAMA Cortex).',
+            'American Medical Association: Above and Beyond Award for the creation of JAMA Plexus (and subsequently JAMA Cortex).',
             style: TextStyle(
               fontFamily: 'Helvetica',
               fontSize: 16,
@@ -187,7 +187,7 @@ class LanguagesWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(
-            top: 40,
+            top: 20,
             left: 40,
           ),
           child: SelectableText(
@@ -214,22 +214,19 @@ class LanguagesWidget extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          height: 40,
-        ),
         Wrap(
           alignment: WrapAlignment.center,
           spacing: 20,
           runSpacing: 20,
           children: [
-            for (var i = 0; i < svgLanguages.length; i++)
+            for (var i = 0; i < svgSkillset.length; i++)
               Card(
                 child: ClipRRect(
                   child: SizedBox.fromSize(
                     size: Size.square(100), // Image radius
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
-                      child: SvgPicture.asset(svgLanguages[i],
+                      child: SvgPicture.asset(svgSkillset[i],
                           semanticsLabel: 'Language Logo'),
                     ),
                   ),
